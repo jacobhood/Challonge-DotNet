@@ -63,6 +63,7 @@ namespace Challonge.Api
 
             return wrappers.Select(w => w.Item);
         }
+
         public async Task<Tournament> CreateTournamentAsync(TournamentInfo tournamentInfo)
         {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(

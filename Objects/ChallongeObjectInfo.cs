@@ -7,6 +7,7 @@ namespace Challonge.Objects
     public abstract class ChallongeObjectInfo
     {
         internal abstract Dictionary<string, object> GetCreateOrUpdateDictionary();
+
         private protected Dictionary<string, object> GetCreateOrUpdateDictionary(string prefix)
         {
             JsonSerializerSettings settings = new()
