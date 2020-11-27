@@ -17,9 +17,7 @@ namespace Challonge.Objects
 
             return JsonConvert.DeserializeObject<Dictionary<string, object>>(
                 JsonConvert.SerializeObject(this, settings))
-                .ToDictionary(kv => $"{prefix}[{kv.Key}]",
-                    kv => kv.Value?.GetType() == typeof(bool) ?
-                        kv.Value.ToString().ToLowerInvariant() : kv.Value);
+                .ToDictionary(kv => $"{prefix}[{kv.Key}]", kv => kv.Value);
         }
     }
 }

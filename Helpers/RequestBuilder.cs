@@ -12,14 +12,14 @@ namespace Challonge.Helpers
         internal static HttpRequestMessage BuildRequest(string url, HttpMethod method,
             IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            parameters ??= new Dictionary<string, object>();
+            IEnumerable<KeyValuePair<string, object>> cleanParameters = CleanParameters(parameters);
 
             return method.Method switch
             {
-                "GET" => BuildGetRequest(url, parameters),
-                "POST" => BuildPostRequest(url, parameters),
-                "PUT" => BuildPutRequest(url, parameters),
-                "DELETE" => BuildDeleteRequest(url, parameters),
+                "GET" => BuildGetRequest(url, cleanParameters),
+                "POST" => BuildPostRequest(url, cleanParameters),
+                "PUT" => BuildPutRequest(url, cleanParameters),
+                "DELETE" => BuildDeleteRequest(url, cleanParameters),
                 _ => throw new NotImplementedException("This HTTP method is not supported.")
             };
         }
@@ -82,16 +82,45 @@ namespace Challonge.Helpers
                     content.Add(new StreamContent(
                         new MemoryStream(a.Content)), key, a.FileName);
                 }
-                else if(value is DateTime d)
-                {
-                    content.Add(new StringContent(d.ToString("O")), key);
-                }
                 else
                 {
                     content.Add(new StringContent(value?.ToString()), key);
                 }
             }
+
             return content;
+        }
+        
+        private static IEnumerable<KeyValuePair<string, object>> CleanParameters(
+            IEnumerable<KeyValuePair<string, object>> parameters)
+        {
+            Dictionary<string, object> result = new();
+
+            if (parameters == null)
+            {
+                return result;
+            }
+
+            foreach(KeyValuePair<string, object> kv in parameters)
+            {
+                string key = kv.Key;
+                object value = kv.Value;
+
+                if(value is bool b)
+                {
+                    result.Add(key, b.ToString().ToLowerInvariant());
+                }
+                else if(value is DateTime d)
+                {
+                    result.Add(key, d.ToString("O"));
+                }
+                else
+                {
+                    result.Add(key, value);
+                }
+            }
+
+            return result;
         }
     }
 }
