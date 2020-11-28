@@ -28,9 +28,9 @@ namespace Challonge.Objects
             ResultIsTie = resultIsTie;
         }
 
-        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
+        internal override Dictionary<string, object> ToDictionary()
         {
-            Dictionary<string, object> dictionary = BuildDictionary("match", ignoreNulls);
+            Dictionary<string, object> dictionary = ToDictionary("match");
 
             if (ResultIsTie)
             {

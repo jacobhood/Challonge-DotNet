@@ -65,10 +65,10 @@ namespace Challonge.Api
             return wrappers.Select(w => w.Item);
         }
 
-        public async Task<Tournament> CreateTournamentAsync(TournamentInfo tournamentInfo, bool ignoreNulls = true)
+        public async Task<Tournament> CreateTournamentAsync(TournamentInfo tournamentInfo)
         {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                "tournaments.json", HttpMethod.Post, tournamentInfo.ToDictionary(ignoreNulls));
+                "tournaments.json", HttpMethod.Post, tournamentInfo.ToDictionary());
 
             return wrapper.Item;
         }
@@ -86,12 +86,11 @@ namespace Challonge.Api
             return GetTournamentByUrlAsync(id.ToString());
         }
 
-        public async Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo,
-            bool ignoreNulls = true)
+        public async Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo)
         {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
                 $"tournaments/{tournament.Id}.json", HttpMethod.Put,
-                tournamentInfo.ToDictionary(ignoreNulls));
+                tournamentInfo.ToDictionary());
 
             return wrapper.Item;
         }
@@ -158,12 +157,11 @@ namespace Challonge.Api
             return wrappers.Select(w => w.Item);
         }
 
-        public async Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo,
-            bool ignoreNulls = true)
+        public async Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo)
         {
             ParticipantWrapper wrapper = await SendRequestAsync<ParticipantWrapper>(
                 $"tournaments/{tournament.Id}/participants.json", HttpMethod.Post,
-                participantInfo.ToDictionary(ignoreNulls));
+                participantInfo.ToDictionary());
 
             return wrapper.Item;
         }
@@ -176,12 +174,11 @@ namespace Challonge.Api
             return wrapper.Item;
         }
 
-        public async Task<Participant> UpdateParticipantAsync(Participant participant, ParticipantInfo participantInfo,
-            bool ignoreNulls = true)
+        public async Task<Participant> UpdateParticipantAsync(Participant participant, ParticipantInfo participantInfo)
         {
             ParticipantWrapper wrapper = await SendRequestAsync<ParticipantWrapper>(
                 $"tournaments/{participant.TournamentId}/participants/{participant.Id}.json",
-                HttpMethod.Put, participantInfo.ToDictionary(ignoreNulls));
+                HttpMethod.Put, participantInfo.ToDictionary());
 
             return wrapper.Item;
         }
@@ -250,11 +247,11 @@ namespace Challonge.Api
             return wrapper.Item;
         }
 
-        public async Task<Match> UpdateMatchAsync(Match match, MatchInfo matchInfo, bool ignoreNulls = true)
+        public async Task<Match> UpdateMatchAsync(Match match, MatchInfo matchInfo)
         {
             MatchWrapper wrapper = await SendRequestAsync<MatchWrapper>(
                 $"tournaments/{match.TournamentId}/matches/{match.Id}.json",
-                HttpMethod.Put, matchInfo.ToDictionary(ignoreNulls));
+                HttpMethod.Put, matchInfo.ToDictionary());
 
             return wrapper.Item;
         }
@@ -295,11 +292,11 @@ namespace Challonge.Api
         }
 
         public async Task<MatchAttachment> CreateMatchAttachmentAsync(Match match, 
-            MatchAttachmentInfo matchAttachmentInfo, bool ignoreNulls = true)
+            MatchAttachmentInfo matchAttachmentInfo)
         {
             MatchAttachmentWrapper wrapper = await SendRequestAsync<MatchAttachmentWrapper>(
                 $"tournaments/{match.TournamentId}/matches/{match.Id}/attachments.json",
-                HttpMethod.Post, matchAttachmentInfo.ToDictionary(ignoreNulls));
+                HttpMethod.Post, matchAttachmentInfo.ToDictionary());
 
             return wrapper.Item;
         }
@@ -314,11 +311,11 @@ namespace Challonge.Api
         }
 
         public async Task<MatchAttachment> UpdateMatchAttachmentAsync(Match match, MatchAttachment matchAttachment,
-            MatchAttachmentInfo matchAttachmentInfo, bool ignoreNulls = true)
+            MatchAttachmentInfo matchAttachmentInfo)
         {
             MatchAttachmentWrapper wrapper = await SendRequestAsync<MatchAttachmentWrapper>(
                 $"tournaments/{match.TournamentId}/matches/{match.Id}/attachments/{matchAttachment.Id}.json",
-                HttpMethod.Put, matchAttachmentInfo.ToDictionary(ignoreNulls));
+                HttpMethod.Put, matchAttachmentInfo.ToDictionary());
 
             return wrapper.Item;
         }

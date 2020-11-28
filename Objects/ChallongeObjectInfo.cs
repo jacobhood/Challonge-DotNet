@@ -6,17 +6,15 @@ namespace Challonge.Objects
 {
     public abstract class ChallongeObjectInfo
     {
-        internal abstract Dictionary<string, object> ToDictionary(bool ignoreNulls);
+        internal abstract Dictionary<string, object> ToDictionary();
 
-        private protected Dictionary<string, object> BuildDictionary(string prefix, bool ignoreNulls)
+        private protected Dictionary<string, object> ToDictionary(string prefix)
         {
-            JsonSerializerSettings settings = new();
-            settings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
-
-            if (ignoreNulls)
+            JsonSerializerSettings settings = new()
             {
-                settings.NullValueHandling = NullValueHandling.Ignore;
-            }
+                DateTimeZoneHandling = DateTimeZoneHandling.Local,
+                NullValueHandling = NullValueHandling.Ignore
+            };
 
             return JsonConvert.DeserializeObject<Dictionary<string, object>>(
                 JsonConvert.SerializeObject(this, settings))

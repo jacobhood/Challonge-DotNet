@@ -102,9 +102,9 @@ namespace Challonge.Objects
             Name = name;
         }
 
-        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
+        internal override Dictionary<string, object> ToDictionary()
         {
-            return BuildDictionary("tournament", ignoreNulls);
+            return ToDictionary("tournament");
         }
     }
 }
