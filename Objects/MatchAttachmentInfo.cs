@@ -14,16 +14,14 @@ namespace Challonge.Objects
         [JsonProperty("description")]
         public string Description { get; set; }
 
-        public MatchAttachmentInfo(MatchAttachmentAsset asset, string description = null)
+        public MatchAttachmentInfo(MatchAttachmentAsset asset)
         {
             Asset = asset;
-            Description = description;
         }
 
-        public MatchAttachmentInfo(string url, string description = null)
+        public MatchAttachmentInfo(string url)
         {
             Url = url;
-            Description = description;
         }
 
         internal override Dictionary<string, object> GetCreateOrUpdateDictionary()

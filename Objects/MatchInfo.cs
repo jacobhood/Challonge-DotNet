@@ -15,10 +15,10 @@ namespace Challonge.Objects
         public long? WinnerId { get; set; }
 
         [JsonProperty("player1_votes")]
-        public int? Player1Votes { get; set; }
+        public int? PlayerOneVotes { get; set; }
 
         [JsonProperty("player2_votes")]
-        public int? Player2Votes { get; set; }
+        public int? PlayerTwoVotes { get; set; }
 
         [JsonIgnore]
         public bool ResultIsTie { get; }
