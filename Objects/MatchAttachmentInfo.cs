@@ -24,12 +24,12 @@ namespace Challonge.Objects
             Url = url;
         }
 
-        internal override Dictionary<string, object> GetCreateOrUpdateDictionary()
+        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
-            Dictionary<string, object> createOrUpdateDict = GetCreateOrUpdateDictionary("match_attachment");
-            createOrUpdateDict["match_attachment[asset]"] = Asset;
+            Dictionary<string, object> dictionary = BuildDictionary("match_attachment", ignoreNulls);
+            dictionary["match_attachment[asset]"] = Asset;
 
-            return createOrUpdateDict;
+            return dictionary;
         }
     }
 }

@@ -28,16 +28,16 @@ namespace Challonge.Objects
             ResultIsTie = resultIsTie;
         }
 
-        internal override Dictionary<string, object> GetCreateOrUpdateDictionary()
+        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
-            Dictionary<string, object> createOrUpdateDictionary = GetCreateOrUpdateDictionary("match");
+            Dictionary<string, object> dictionary = BuildDictionary("match", ignoreNulls);
 
             if (ResultIsTie)
             {
-                createOrUpdateDictionary["match[winner_id]"] = "tie";
+                dictionary["match[winner_id]"] = "tie";
             }
 
-            return createOrUpdateDictionary;
+            return dictionary;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Challonge.Exceptions
                     "please report an issue in the Github repository.",
                 HttpStatusCode.InternalServerError => "An unspecified Challonge server error occurred.",
                 HttpStatusCode.UnprocessableEntity or HttpStatusCode.NotFound =>
-                        JsonConvert.DeserializeObject<ErrorResponse>(responseText).ErrorMessage,
+                    JsonConvert.DeserializeObject<ErrorResponse>(responseText).Message,
                 _ => responseText
             })
         {

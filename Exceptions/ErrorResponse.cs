@@ -11,7 +11,7 @@ namespace Challonge.Exceptions
         [JsonProperty("errors")]
         internal IEnumerable<string> Errors { get; set; }
 
-        internal string ErrorMessage
+        internal string Message
         {
             get
             {
