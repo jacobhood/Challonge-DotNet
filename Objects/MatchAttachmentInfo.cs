@@ -24,9 +24,9 @@ namespace Challonge.Objects
             Url = url;
         }
 
-        internal override Dictionary<string, object> ToDictionary()
+        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
-            Dictionary<string, object> dictionary = ToDictionary("match_attachment");
+            Dictionary<string, object> dictionary = ToDictionaryWithKeyPrefix("match_attachment", ignoreNulls);
             dictionary["match_attachment[asset]"] = Asset;
 
             return dictionary;

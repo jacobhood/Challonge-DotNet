@@ -10,13 +10,13 @@ namespace Challonge.Api
         public Task<IEnumerable<Tournament>> GetTournamentsAsync(TournamentState? state = null, TournamentType? type = null,
             DateTime? createdAfter = null, DateTime? createdBefore = null, string subdomain = null);
 
-        public Task<Tournament> CreateTournamentAsync(TournamentInfo tournamentInfo);
+        public Task<Tournament> CreateTournamentAsync(TournamentInfo tournamentInfo, bool ignoreNulls = true);
 
         public Task<Tournament> GetTournamentByUrlAsync(string url);
 
         public Task<Tournament> GetTournamentByIdAsync(long id);
 
-        public Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo);
+        public Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo, bool ignoreNulls = true);
 
         public Task DeleteTournamentAsync(Tournament tournament);
 
@@ -34,11 +34,11 @@ namespace Challonge.Api
 
         public Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament);
 
-        public Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo);
+        public Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo, bool ignoreNulls = true);
 
         public Task<Participant> GetParticipantAsync(Tournament tournament, long participantId);
 
-        public Task<Participant> UpdateParticipantAsync(Participant participant, ParticipantInfo participantInfo);
+        public Task<Participant> UpdateParticipantAsync(Participant participant, ParticipantInfo participantInfo, bool ignoreNulls = true);
 
         public Task<Participant> CheckInParticipantAsync(Participant participant);
 
@@ -55,7 +55,7 @@ namespace Challonge.Api
 
         public Task<Match> GetMatchAsync(Tournament tournament, long matchId);
 
-        public Task<Match> UpdateMatchAsync(Match match, MatchInfo matchInfo);
+        public Task<Match> UpdateMatchAsync(Match match, MatchInfo matchInfo, bool ignoreNulls = true);
 
         public Task<Match> ReopenMatchAsync(Match match);
 
@@ -65,12 +65,12 @@ namespace Challonge.Api
 
         public Task<IEnumerable<MatchAttachment>> GetMatchAttachmentsAsync(Match match);
 
-        public Task<MatchAttachment> CreateMatchAttachmentAsync(Match match, MatchAttachmentInfo matchAttachmentInfo);
+        public Task<MatchAttachment> CreateMatchAttachmentAsync(Match match, MatchAttachmentInfo matchAttachmentInfo, bool ignoreNulls = true);
 
         public Task<MatchAttachment> GetMatchAttachmentAsync(Match match, long matchAttachmentId);
 
         public Task<MatchAttachment> UpdateMatchAttachmentAsync(Match match,
-            MatchAttachment matchAttachment, MatchAttachmentInfo matchAttachmentInfo);
+            MatchAttachment matchAttachment, MatchAttachmentInfo matchAttachmentInfo, bool ignoreNulls = true);
 
         public Task DeleteMatchAttachmentAsync(Match match, MatchAttachment matchAttachment);
     }

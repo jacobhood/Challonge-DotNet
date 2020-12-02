@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Company />
+    <PackageId>Challonge.NET</PackageId>
+    <Authors>Jacob Hood</Authors>
+    <Product>Challonge.NET</Product>
+    <Description>A library for interacting with the Challonge API built on .NET.</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -26,9 +26,9 @@ namespace Challonge.Objects
             Name = name;
         }
 
-        internal override Dictionary<string, object> ToDictionary()
+        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
-            return ToDictionary("participant");
+            return ToDictionaryWithKeyPrefix("participant", ignoreNulls);
         }
     }
 }

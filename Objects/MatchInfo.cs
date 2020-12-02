@@ -6,7 +6,6 @@ namespace Challonge.Objects
 {
     public class MatchInfo : ChallongeObjectInfo
     {
-
         [JsonProperty("scores_csv")]
         [JsonConverter(typeof(ScoresJsonConverter))]
         public IEnumerable<Score> Scores { get; set; }
@@ -28,9 +27,9 @@ namespace Challonge.Objects
             ResultIsTie = resultIsTie;
         }
 
-        internal override Dictionary<string, object> ToDictionary()
+        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
-            Dictionary<string, object> dictionary = ToDictionary("match");
+            Dictionary<string, object> dictionary = ToDictionaryWithKeyPrefix("match", ignoreNulls);
 
             if (ResultIsTie)
             {

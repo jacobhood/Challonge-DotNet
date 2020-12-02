@@ -12,7 +12,7 @@ namespace Challonge.Objects
 
         [JsonProperty("tournament_type")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public TournamentType? TournamentType { get; set; }
+        public TournamentType TournamentType { get; set; }
 
         [JsonProperty("url")]
         public string Url { get; set; }
@@ -24,25 +24,25 @@ namespace Challonge.Objects
         public string Description { get; set; }
 
         [JsonProperty("open_signup")]
-        public bool? OpenSignup { get; set; }
+        public bool OpenSignup { get; set; }
 
         [JsonProperty("hold_third_place_match")]
-        public bool? HoldThirdPlaceMatch { get; set; }
+        public bool HoldThirdPlaceMatch { get; set; }
 
         [JsonProperty("pts_for_match_win")]
-        public double? PtsForMatchWin { get; set; }
+        public double PtsForMatchWin { get; set; }
 
         [JsonProperty("pts_for_match_tie")]
-        public double? PtsForMatchTie { get; set; }
+        public double PtsForMatchTie { get; set; }
 
         [JsonProperty("pts_for_game_win")]
-        public double? PtsForGameWin { get; set; }
+        public double PtsForGameWin { get; set; }
 
         [JsonProperty("pts_for_game_tie")]
-        public double? PtsForGameTie { get; set; }
+        public double PtsForGameTie { get; set; }
 
         [JsonProperty("pts_for_bye")]
-        public double? PtsForBye { get; set; }
+        public double PtsForBye { get; set; }
 
         [JsonProperty("swiss_rounds")]
         public int? SwissRounds { get; set; }
@@ -52,37 +52,37 @@ namespace Challonge.Objects
         public RankingMethod? RankedBy { get; set; }
 
         [JsonProperty("rr_pts_for_match_win")]
-        public double? RRPtsForMatchWin { get; set; }
+        public double RRPtsForMatchWin { get; set; }
 
         [JsonProperty("rr_pts_for_match_tie")]
-        public double? RRPtsForMatchTie { get; set; }
+        public double RRPtsForMatchTie { get; set; }
          
         [JsonProperty("rr_pts_for_game_win")]
-        public double? RRPtsForGameWin { get; set; }
+        public double RRPtsForGameWin { get; set; }
 
         [JsonProperty("rr_pts_for_game_tie")]
-        public double? RRPtsForGameTie { get; set; }
+        public double RRPtsForGameTie { get; set; }
 
         [JsonProperty("accept_attachments")]
-        public bool? AcceptAttachments { get; set; }
+        public bool AcceptAttachments { get; set; }
 
         [JsonProperty("hide_forum")]
-        public bool? HideForum { get; set; }
+        public bool HideForum { get; set; }
 
         [JsonProperty("show_rounds")]
-        public bool? ShowRounds { get; set; }
+        public bool ShowRounds { get; set; }
 
         [JsonProperty("private")]
-        public bool? Private { get; set; }
+        public bool Private { get; set; }
 
         [JsonProperty("notify_users_when_matches_open")]
-        public bool? NotifyUsersWhenMatchesOpen { get; set; }
+        public bool NotifyUsersWhenMatchesOpen { get; set; }
 
         [JsonProperty("notify_users_when_the_tournament_ends")]
-        public bool? NotifyUsersWhenTheTournamentEnds { get; set; }
+        public bool NotifyUsersWhenTheTournamentEnds { get; set; }
 
         [JsonProperty("sequential_pairings")]
-        public bool? SequentialPairings { get; set; }
+        public bool SequentialPairings { get; set; }
 
         [JsonProperty("signup_cap")]
         public int? SignupCap { get; set; }
@@ -100,11 +100,20 @@ namespace Challonge.Objects
         public TournamentInfo(string name)
         {
             Name = name;
+            PtsForMatchWin = 1;
+            PtsForMatchTie = 0.5;
+            PtsForGameWin = 0;
+            PtsForGameTie = 0;
+            PtsForBye = 1;
+            RRPtsForMatchWin = 1;
+            RRPtsForMatchTie = 0.5;
+            RRPtsForGameWin = 0;
+            RRPtsForGameTie = 0;
         }
 
-        internal override Dictionary<string, object> ToDictionary()
+        internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
-            return ToDictionary("tournament");
+            return ToDictionaryWithKeyPrefix("tournament", ignoreNulls);
         }
     }
 }
