@@ -45,7 +45,7 @@ namespace Challonge.Objects
         public double PtsForBye { get; set; }
 
         [JsonProperty("swiss_rounds")]
-        public int? SwissRounds { get; set; }
+        public int SwissRounds { get; set; }
 
         [JsonProperty("ranked_by")]
         [JsonConverter(typeof(StringEnumConverter))]
