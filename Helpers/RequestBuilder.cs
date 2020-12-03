@@ -60,7 +60,8 @@ namespace Challonge.Helpers
 
             if (parameters.Any())
             {
-                qString = "?" + string.Join("&", parameters.Where(kv => kv.Value != null)
+                qString = "?" + string.Join("&", parameters
+                    .Where(kv => kv.Value != null)
                     .Select(kv => $"{Uri.EscapeDataString(kv.Key)}=" +
                         $"{Uri.EscapeDataString(kv.Value.ToString())}"));
             }
@@ -108,10 +109,7 @@ namespace Challonge.Helpers
         {
             Dictionary<string, object> result = new();
 
-            if (parameters == null)
-            {
-                return result;
-            }
+            parameters ??= new Dictionary<string, object>();
 
             foreach(KeyValuePair<string, object> kv in parameters)
             {
