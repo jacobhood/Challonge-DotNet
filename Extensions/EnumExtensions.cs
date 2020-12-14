@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace Challonge.Extensions
+namespace Challonge.Extensions.Internal
 {
     internal static class EnumExtensions
     {
