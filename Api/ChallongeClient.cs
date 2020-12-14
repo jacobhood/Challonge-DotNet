@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Challonge.Api
 {
+    /// <inheritdoc cref="IChallongeClient"/>
     public class ChallongeClient : IChallongeClient
     {
         private readonly HttpClient _client;

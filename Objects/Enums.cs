@@ -48,6 +48,13 @@ namespace Challonge.Objects
         Custom
     }
 
+    public enum PredictionMethod
+    {
+        Default,
+        ExponentialScoring,
+        LinearScoring
+    }
+
     public enum GrandFinalsModifier
     {
         [EnumMember(Value = "single match")]

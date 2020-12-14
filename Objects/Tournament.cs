@@ -123,7 +123,7 @@ namespace Challonge.Objects
         public bool HideSeeds { get; private set; }
 
         [JsonProperty("prediction_method")]
-        public int PredictionMethod { get; private set; }
+        public PredictionMethod PredictionMethod { get; private set; }
 
         [JsonProperty("predictions_opened_at")]
         public DateTime? PredictionsOpenedAt { get; private set; }
