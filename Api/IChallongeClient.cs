@@ -75,7 +75,7 @@ namespace Challonge.Api
         /// <summary>
         /// Aborts a tournament's check-in:
         /// <list type="number">
-        /// <item>Makes all participants active and clears their checked_in_at times.</item>
+        /// <item>Makes all participants active and clears their "checked_in_at" times.</item>
         /// <item>Transitions the tournament state from "checking_in" or "checked_in" to "pending."</item>
         /// </list>
         /// </summary>
