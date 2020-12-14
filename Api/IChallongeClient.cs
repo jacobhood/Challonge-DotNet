@@ -107,7 +107,7 @@ namespace Challonge.Api
         /// <summary>
         /// Allows a tournament to start accepting predictions.
         /// </summary>
-        /// <param name="tournament">The tournament to open to predictions.</param>
+        /// <param name="tournament">The tournament to open for predictions.</param>
         /// <returns>A task representing the updated tournament.</returns>
         public Task<Tournament> OpenTournamentForPredictionsAsync(Tournament tournament);
 
