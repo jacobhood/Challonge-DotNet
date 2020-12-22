@@ -1,5 +1,5 @@
 ﻿using Challonge.Exceptions;
-using Challonge.Extensions;
+using Challonge.Extensions.Internal;
 using Challonge.Helpers;
 using Challonge.Objects;
 using Newtonsoft.Json;
@@ -23,9 +23,8 @@ namespace Challonge.Api
         {
             client.BaseAddress = new Uri("https://api.challonge.com/v1/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Basic", Convert.ToBase64String(
-                    Encoding.ASCII.GetBytes(
-                        $"{credentials.Username}:{credentials.ApiKey}")));
+                "Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes(
+                    $"{credentials.Username}:{credentials.ApiKey}")));
             _client = client;
         }
 

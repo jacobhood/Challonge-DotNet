@@ -68,7 +68,7 @@ namespace Challonge.Api
         /// <item>Transitions the tournament state from "checking_in" to "checked_in."</item>
         /// </list>
         /// </summary>
-        /// <param name="tournament">The tournament whose check-ins are to be processed.</param>
+        /// <param name="tournament">The tournament for which to process check-ins.</param>
         /// <returns>A task representing the the updated tournament.</returns>
         public Task<Tournament> ProcessTournamentCheckInsAsync(Tournament tournament);
 
@@ -79,7 +79,7 @@ namespace Challonge.Api
         /// <item>Transitions the tournament state from "checking_in" or "checked_in" to "pending."</item>
         /// </list>
         /// </summary>
-        /// <param name="tournament">The tournament whose check-ins are to be aborted.</param>
+        /// <param name="tournament">The tournament for which to cancel check-in.</param>
         /// <returns>A task representing the updated tournament.</returns>
         public Task<Tournament> AbortTournamentCheckInAsync(Tournament tournament);
 
@@ -132,7 +132,7 @@ namespace Challonge.Api
         /// </summary>
         /// <param name="tournament">The participant's tournament.</param>
         /// <param name="participantId">The participant's ID.</param>
-        /// <returns></returns>
+        /// <returns>A task representing the participant.</returns>
         public Task<Participant> GetParticipantAsync(Tournament tournament, long participantId);
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace Challonge.Api
         /// <summary>
         /// Randomizes a tournament's seeds if it has not yet started.
         /// </summary>
-        /// <param name="tournament">The tournament whose seeds are to be randomized.</param>
+        /// <param name="tournament">The tournament for which to randomize seeds.</param>
         /// <returns>A task representing the updated participants.</returns>
         public Task<IEnumerable<Participant>> RandomizeParticipantsAsync(Tournament tournament);
 
@@ -186,7 +186,7 @@ namespace Challonge.Api
         /// <param name="tournament">The tournament whose matches are to be retrieved.</param>
         /// <param name="matchState">The state of matches to retrieve.</param>
         /// <param name="participant">The participant whose matches are to be retrieved.</param>
-        /// <returns>A task representing the matches.</returns>
+        /// <returns>A task representing the tournament's matches.</returns>
         public Task<IEnumerable<Match>> GetMatchesAsync(Tournament tournament, MatchState matchState = MatchState.All,
             Participant participant = null);
 
@@ -258,7 +258,7 @@ namespace Challonge.Api
         /// <param name="match">The attachment's match.</param>
         /// <param name="matchAttachment">The attachment to update.</param>
         /// <param name="matchAttachmentInfo">The new details of the attachment.</param>
-        /// <param name="ignoreNulls">Indicates wheter null-valued properties of matchAttachmentInfo should be sent to Challonge.</param>
+        /// <param name="ignoreNulls">Indicates whether null-valued properties of matchAttachmentInfo should be sent to Challonge.</param>
         /// <returns>A task representing the updated attachment..</returns>
         public Task<MatchAttachment> UpdateMatchAttachmentAsync(Match match,
             MatchAttachment matchAttachment, MatchAttachmentInfo matchAttachmentInfo, bool ignoreNulls = true);
