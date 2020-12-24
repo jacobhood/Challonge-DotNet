@@ -16,7 +16,7 @@ Console application:
 
 Add a `using Challonge.Api;` statement to your `Program.cs` file
 
-```
+```C#
 class Program
 {
 	private static readonly HttpClient _httpClient = new();
