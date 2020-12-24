@@ -19,7 +19,7 @@ namespace Challonge.Api
     {
         private readonly HttpClient _client;
 
-        public ChallongeClient(IChallongeCredentials credentials, HttpClient client)
+        public ChallongeClient(HttpClient client, IChallongeCredentials credentials)
         {
             client.BaseAddress = new Uri("https://api.challonge.com/v1/");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(

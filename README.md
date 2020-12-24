@@ -1,4 +1,4 @@
-﻿# Challonge.NET
+﻿#Challonge.NET
 
 Challonge.NET is a C# implementation of the Challonge! API built on .NET.
 
@@ -12,10 +12,9 @@ The library is available through NuGet. Install as you would any other package.
 
 ## Usage
 
-Console application:
+### Console Application
 
-Add a `using Challonge.Api` statement to the top of your `Program.cs` file. You'll probably want to add
-a `using Challonge.Objects` statement too.
+Add a `using Challonge.Api` statement to your `Program.cs` file. You'll probably want a `using Challonge.Objects` statement too.
 
 ```C#
 class Program
@@ -31,3 +30,6 @@ class Program
     }
 }
 ```
+
+ASP.NET Core Web Application:
+
