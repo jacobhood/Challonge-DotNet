@@ -19,14 +19,14 @@ Add a `using Challonge.Api;` statement to your `Program.cs` file
 ```C#
 class Program
 {
-	private static readonly HttpClient _httpClient = new();
-	private static readonly ChallongeCredentials _credentials = new("username", "apiKey");
-	private static readonly ChallongeClient _client = new(_credentials, _httpClient);
-
-	static void Main(string[] args)
-	{
-		var tournaments = _client.GetTournamentsAsync().Result;
-		// Do more things
-	}
+    private static readonly HttpClient _httpClient = new();
+    private static readonly ChallongeCredentials _credentials = new("username", "apiKey");
+    private static readonly ChallongeClient _client = new(_credentials, _httpClient);
+	
+    static void Main(string[] args)
+    {
+        var tournaments = _client.GetTournamentsAsync().Result;
+        // Do more things
+    }
 }
 ```
