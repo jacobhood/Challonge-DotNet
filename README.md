@@ -32,7 +32,6 @@ class Program
     static void Main(string[] args)
     {
         var tournaments = _client.GetTournamentsAsync().Result;
-        // Do more things
     }
 }
 ```
@@ -49,38 +48,21 @@ Then, in `ConfigureServices`:
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddChallonge("username", "apiKey");
+    // Consider storing your credentials outside your source code 
+    // (e.g. as environment variables, in a configuration file, etc.)
+
 }
 ```
+Now you can inject an `IChallongeClient` into your controllers:
 
-You may want to move your username and API key into your `appsettings.json` file and access them through an `IConfiguration`
-injected into the `Startup` class constructor.
-
-`appsettings.json`:
-
-```json
-{
-  "Challonge": {
-    "Username": "username",
-    "ApiKey": "apiKey"
-  }
-}
-```
-
-`Startup.cs`:
 ```C#
-public class Startup
+public class HomeController : Controller
 {
-    private readonly IConfiguration _configuration;
+    private readonly IChallongeClient _client;
 
-    public Startup(IConfiguration configuration)
+    public HomeController(IChallongeClient client)
     {
-        _configuration = configuration;
-    }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddChallonge(_configuration["Challonge:Username"], _configuration["Challonge:ApiKey"])
+        _client = client;
     }
 }
 ```
-Note that `"Username"` is a default key in the injected IConfiguration, which is why it's wrapped in an object in the example.
