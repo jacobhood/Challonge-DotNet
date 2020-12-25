@@ -20,7 +20,7 @@ Add these `using` directives to your `Program.cs` file:
 using Challonge.Api;
 using Challonge.Objects;
 ```
-Create and use a client:
+Create the client and use its methods:
 
 ```C#
 class Program
@@ -37,7 +37,7 @@ class Program
 ```
 #### ASP.NET Core Web Application
 
-Challonge.NET supports dependency injection in ASP.NET Core web applications using the built-in dependency injection framework.
+Challonge.NET supports dependency injection using the built-in dependency injection framework.
 
 In `Startup.cs`, add:
 ```C#
@@ -50,10 +50,9 @@ public void ConfigureServices(IServiceCollection services)
     services.AddChallonge("username", "apiKey");
     // Consider storing your credentials outside your source code 
     // (e.g. as environment variables, in a configuration file, etc.)
-
 }
 ```
-Now, add the appropriate `using` directives and inject `IChallongeClient` into your controllers:
+Finally, add the appropriate `using` directives and inject the client into your controllers:
 
 ```C#
 public class HomeController : Controller
@@ -66,5 +65,4 @@ public class HomeController : Controller
     }
 }
 ```
-
 You can also inject `IChallongeCredentials` to access the username and api key being used to interact with the API.
