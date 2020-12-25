@@ -57,7 +57,7 @@ injected into the `Startup` class constructor.
 
 `appsettings.json`:
 
-```JSON
+```json
 {
   "Challonge": {
     "Username": "username",
@@ -67,7 +67,7 @@ injected into the `Startup` class constructor.
 ```
 
 `Startup.cs`:
-```
+```C#
 public class Startup
 {
     private readonly IConfiguration _configuration;
