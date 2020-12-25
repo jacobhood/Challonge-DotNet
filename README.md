@@ -20,7 +20,7 @@ Add these `using` directives to your `Program.cs` file:
 using Challonge.Api;
 using Challonge.Objects;
 ```
-Initialize and use a client:
+Create and use a client:
 
 ```C#
 class Program
@@ -53,7 +53,7 @@ public void ConfigureServices(IServiceCollection services)
 
 }
 ```
-Now you can inject an `IChallongeClient` into your controllers:
+Now, add the appropriate `using` directives and inject `IChallongeClient` into your controllers:
 
 ```C#
 public class HomeController : Controller
@@ -66,3 +66,5 @@ public class HomeController : Controller
     }
 }
 ```
+
+You can also inject `IChallongeCredentials` to access the username and api key being used to interact with the API.
