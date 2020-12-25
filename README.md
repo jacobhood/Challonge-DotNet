@@ -17,8 +17,8 @@ The library is available through NuGet. Install as you would any other package.
 Add these `using` directives to your `Program.cs` file:
 
 ```C#
-    using Challonge.Api;
-    using Challonge.Objects;
+using Challonge.Api;
+using Challonge.Objects;
 ```
 Initialize a client:
 
@@ -41,7 +41,7 @@ class Program
 Challonge.NET supports dependency injection in ASP.NET Core web applications using the built-in dependency injection framework.
 In `Startup.cs`, add:
 ```C#
-    using Challonge.Extensions;
+using Challonge.Extensions;
 ```
 Then, in `ConfigureServices`:
 ```C#
