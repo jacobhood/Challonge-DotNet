@@ -1,6 +1,6 @@
 ﻿# Challonge.NET
 
-Challonge.NET is a C# implementation of the Challonge! API built on .NET.
+Challonge.NET is a C# implementation of the CHALLONGE! API built on .NET.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ Add these `using` directives to your `Program.cs` file:
 using Challonge.Api;
 using Challonge.Objects;
 ```
-Initialize a client:
+Initialize and use a client:
 
 ```C#
 class Program
@@ -39,6 +39,7 @@ class Program
 #### ASP.NET Core Web Application
 
 Challonge.NET supports dependency injection in ASP.NET Core web applications using the built-in dependency injection framework.
+
 In `Startup.cs`, add:
 ```C#
 using Challonge.Extensions;
@@ -50,3 +51,36 @@ public void ConfigureServices(IServiceCollection services)
     services.AddChallonge("username", "apiKey");
 }
 ```
+
+You may want to move your username and API key into your `appsettings.json` file and access them through an `IConfiguration`
+injected into the `Startup` class constructor.
+
+`appsettings.json`:
+
+```JSON
+{
+  "Challonge": {
+    "Username": "username",
+    "ApiKey": "apiKey"
+  }
+}
+```
+
+`Startup.cs`:
+```
+public class Startup
+{
+    private readonly IConfiguration _configuration;
+
+    public Startup(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddChallonge(_configuration["Challonge:Username"], _configuration["Challonge:ApiKey"])
+    }
+}
+```
+Note that `"Username"` is a default key in the injected IConfiguration, which is why it's wrapped in an object in the example.
