@@ -1,7 +1,7 @@
 ﻿# Challonge.NET
 
-Challonge.NET is a C# implementation of the [CHALLONGE! API] (https://api.challonge.com/v1) 
-built on .NET. It is based on the [Typed Client] (https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0#typed-clients)
+Challonge.NET is a C# implementation of the [CHALLONGE! API](https://api.challonge.com/v1) 
+built on .NET. It is based on the [Typed Client](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0#typed-clients)
 pattern and exposes asynchronous methods for interacting with the API.
 
 ## Requirements
