@@ -6,6 +6,7 @@ built on .NET. It exposes asynchronous methods for interacting with the API.
 ## Requirements
 
 - .NET 5.0
+- Internet connection
 
 ## Installation
 
@@ -15,7 +16,7 @@ The library is available through NuGet. Install as you would any other package.
 
 #### Console Application
 
-Add these `using` directives to `Program.cs`:
+Add these `using` directives to `Program.cs` (or wherever you intend to make API calls):
 
 ```C#
 using Challonge.Api;
@@ -36,6 +37,7 @@ class Program
     }
 }
 ```
+
 #### ASP.NET Core Web Application
 
 Challonge.NET supports dependency injection using the built-in dependency injection framework.
@@ -44,7 +46,6 @@ In `Startup.cs`:
 ```C#
 using Challonge.Extensions.DependencyInjection;
 ```
-In `ConfigureServices`:
 ```C#
 public void ConfigureServices(IServiceCollection services)
 {
@@ -53,7 +54,14 @@ public void ConfigureServices(IServiceCollection services)
     // (e.g. as environment variables, in a configuration file, etc.)
 }
 ```
-Now, add the appropriate `using` directives and inject the client into your controllers:
+Now, add the appropriate `using` directives to your controller file(s):
+
+```C#
+using Challonge.Api;
+using Challonge.Objects;
+```
+
+Inject the client into your controllers:
 
 ```C#
 public class HomeController : Controller
