@@ -16,7 +16,7 @@ The library is available through NuGet. Install as you would any other package.
 
 #### Console Application
 
-Add these `using` directives to `Program.cs` (or wherever you intend to make API calls):
+Add these `using` directives to `Program.cs` (or wherever you intend to call the API):
 
 ```C#
 using Challonge.Api;
