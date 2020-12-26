@@ -54,7 +54,7 @@ public void ConfigureServices(IServiceCollection services)
     // (e.g. as environment variables, in a configuration file, etc.)
 }
 ```
-Now, add the appropriate `using` directives to your controller file(s):
+Add the appropriate `using` directives to your controller file(s):
 
 ```C#
 using Challonge.Api;
