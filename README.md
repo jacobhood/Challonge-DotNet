@@ -1,8 +1,7 @@
 ﻿# Challonge.NET
 
 Challonge.NET is a C# implementation of the [CHALLONGE! API](https://api.challonge.com/v1) 
-built on .NET. It is based on the [Typed Client](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0#typed-clients)
-pattern and exposes asynchronous methods for interacting with the API.
+built on .NET. It exposes asynchronous methods for interacting with the API.
 
 ## Requirements
 
@@ -41,11 +40,11 @@ class Program
 
 Challonge.NET supports dependency injection using the built-in dependency injection framework.
 
-In `Startup.cs`, add:
+In `Startup.cs`:
 ```C#
 using Challonge.Extensions.DependencyInjection;
 ```
-Then, in `ConfigureServices`:
+In `ConfigureServices`:
 ```C#
 public void ConfigureServices(IServiceCollection services)
 {
@@ -54,7 +53,7 @@ public void ConfigureServices(IServiceCollection services)
     // (e.g. as environment variables, in a configuration file, etc.)
 }
 ```
-Finally, add the appropriate `using` directives and inject the client into your controllers:
+Now, add the appropriate `using` directives and inject the client into your controllers:
 
 ```C#
 public class HomeController : Controller
