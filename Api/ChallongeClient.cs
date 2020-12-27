@@ -35,14 +35,12 @@ namespace Challonge.Api
 
             string responseText = await response.Content.ReadAsStringAsync();
 
-            if (response.IsSuccessStatusCode)
-            {
-                return JsonConvert.DeserializeObject<TReturn>(responseText);
-            }
-            else
+            if (!response.IsSuccessStatusCode)
             {
                 throw new ChallongeException(responseText, response.StatusCode);
             }
+
+            return JsonConvert.DeserializeObject<TReturn>(responseText);
         }
 
         public async Task<IEnumerable<Tournament>> GetTournamentsAsync(TournamentState? state = null,
