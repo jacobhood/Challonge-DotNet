@@ -114,7 +114,7 @@ namespace Challonge.Helpers
             foreach(KeyValuePair<string, object> kv in parameters)
             {
                 string key = kv.Key;
-                object value = kv.Value;;
+                object value = kv.Value;
 
                 result.Add(key, value switch
                 {
