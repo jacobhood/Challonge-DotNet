@@ -17,7 +17,7 @@ namespace Challonge.Exceptions
             {
                 int i = 1;
                 int errorCount = Errors.Count();
-                StringBuilder builder = new StringBuilder($"Challonge responded with the following errors:{Environment.NewLine}");
+                StringBuilder builder = new($"Challonge responded with the following errors:{Environment.NewLine}");
                 foreach (string error in Errors)
                 {
                     builder.Append($"{i}. {error}{(i == errorCount ? "" : Environment.NewLine)}");

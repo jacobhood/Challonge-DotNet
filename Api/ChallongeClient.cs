@@ -210,7 +210,7 @@ namespace Challonge.Api
 
         public async Task ClearParticipantsAsync(Tournament tournament)
         {
-            await SendRequestAsync<MessageResponse>(
+            await SendRequestAsync<ChallongeMessage>(
                 $"tournaments/{tournament.Id}/participants/clear.json",
                 HttpMethod.Delete);
         }

@@ -105,13 +105,11 @@ namespace Challonge.Helpers
         }
 
         private static IEnumerable<KeyValuePair<string, object>> CleanParameters(
-        IEnumerable<KeyValuePair<string, object>> parameters)
+            IEnumerable<KeyValuePair<string, object>> parameters)
         {
             Dictionary<string, object> result = new();
 
-            parameters ??= new Dictionary<string, object>();
-
-            foreach(KeyValuePair<string, object> kv in parameters)
+            foreach(KeyValuePair<string, object> kv in parameters ?? new Dictionary<string, object>())
             {
                 string key = kv.Key;
                 object value = kv.Value;

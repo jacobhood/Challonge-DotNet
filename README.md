@@ -14,7 +14,7 @@ The library is available through NuGet. Install as you would any other package.
 
 ## Usage
 
-#### Console Application
+### Console Application
 
 Add these `using` directives to `Program.cs` (or wherever you intend to call the API):
 
@@ -38,7 +38,7 @@ class Program
 }
 ```
 
-#### ASP.NET Core Web Application
+### ASP.NET Core Web Application
 
 Challonge.NET supports dependency injection using the built-in dependency injection framework.
 
