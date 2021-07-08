@@ -19,7 +19,6 @@ namespace Challonge.Objects
         [EnumMember(Value = "checked_in")]
         CheckedIn
     }
-
     public enum TournamentType
     {
         [EnumMember(Value = "single elimination")]
@@ -33,7 +32,6 @@ namespace Challonge.Objects
         [EnumMember(Value = "free for all")]
         FreeForAll
     }
-
     public enum RankingMethod
     {
         [EnumMember(Value = "match wins")]
@@ -47,14 +45,12 @@ namespace Challonge.Objects
         [EnumMember(Value = "custom")]
         Custom
     }
-
     public enum PredictionMethod
     {
         Default,
         ExponentialScoring,
         LinearScoring
     }
-
     public enum GrandFinalsModifier
     {
         [EnumMember(Value = "single match")]
@@ -62,7 +58,6 @@ namespace Challonge.Objects
         [EnumMember(Value = "skip")]
         Skip
     }
-
     public enum MatchState
     {
         [EnumMember(Value = "all")]

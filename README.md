@@ -51,17 +51,16 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddChallonge("username", "apiKey");
     // Consider storing your credentials outside your source code 
-    // (e.g. as environment variables, in a configuration file, etc.)
 }
 ```
-Add the appropriate `using` directives to your controller file(s):
+Add the appropriate `using` directives to your controller:
 
 ```C#
 using Challonge.Api;
 using Challonge.Objects;
 ```
 
-Inject the client into your controllers:
+Inject the client:
 
 ```C#
 public class HomeController : Controller

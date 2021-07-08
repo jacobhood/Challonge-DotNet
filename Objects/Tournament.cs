@@ -3,7 +3,6 @@ using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 
-
 namespace Challonge.Objects
 {
     public class Tournament : ChallongeObject
