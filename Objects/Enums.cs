@@ -17,7 +17,11 @@ namespace Challonge.Objects
         [EnumMember(Value = "checking_in")]
         CheckingIn,
         [EnumMember(Value = "checked_in")]
-        CheckedIn
+        CheckedIn,
+        [EnumMember(Value = "awaiting_review")]
+        AwaitingReview,
+        [EnumMember(Value = "complete")]
+        Complete
     }
     public enum TournamentType
     {

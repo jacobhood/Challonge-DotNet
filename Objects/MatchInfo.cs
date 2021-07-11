@@ -1,6 +1,7 @@
 ﻿using Challonge.JsonConverters;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Challonge.Objects
 {
@@ -37,6 +38,11 @@ namespace Challonge.Objects
             }
 
             return dictionary;
+        }
+
+        internal override bool Validate()
+        {
+            return WinnerId == null || Scores.Any();
         }
     }
 }

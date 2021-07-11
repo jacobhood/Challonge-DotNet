@@ -14,22 +14,17 @@ namespace Challonge.Objects
         [JsonProperty("description")]
         public string Description { get; set; }
 
-        public MatchAttachmentInfo(MatchAttachmentAsset asset)
-        {
-            Asset = asset;
-        }
-
-        public MatchAttachmentInfo(string url)
-        {
-            Url = url;
-        }
-
         internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
             Dictionary<string, object> dictionary = ToDictionaryWithKeyPrefix("match_attachment", ignoreNulls);
             dictionary["match_attachment[asset]"] = Asset;
 
             return dictionary;
+        }
+
+        internal override bool Validate()
+        {
+            return Asset?.Content != null || !string.IsNullOrEmpty(Url) || !string.IsNullOrEmpty(Description);
         }
     }
 }

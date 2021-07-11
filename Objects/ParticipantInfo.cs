@@ -21,14 +21,14 @@ namespace Challonge.Objects
         [JsonProperty("misc")]
         public string Misc { get; set; }
 
-        public ParticipantInfo(string name)
-        {
-            Name = name;
-        }
-
         internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
             return ToDictionaryWithKeyPrefix("participant", ignoreNulls);
+        }
+
+        internal override bool Validate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

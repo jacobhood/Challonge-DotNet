@@ -2,7 +2,7 @@
 
 namespace Challonge.Objects
 {
-    internal class ChallongeMessage : ChallongeObject
+    internal class ChallongeMessage
     {
         [JsonProperty("message")]
         internal string Message { get; set; }

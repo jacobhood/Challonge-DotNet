@@ -97,9 +97,8 @@ namespace Challonge.Objects
         [JsonConverter(typeof(StringEnumConverter))]
         public GrandFinalsModifier? GrandFinalsModifier { get; set; }
 
-        public TournamentInfo(string name)
+        public TournamentInfo()
         {
-            Name = name;
             PtsForMatchWin = 1;
             PtsForMatchTie = 0.5;
             PtsForGameWin = 0;
@@ -114,6 +113,11 @@ namespace Challonge.Objects
         internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)
         {
             return ToDictionaryWithKeyPrefix("tournament", ignoreNulls);
+        }
+
+        internal override bool Validate()
+        {
+            return !string.IsNullOrEmpty(Name);
         }
     }
 }
