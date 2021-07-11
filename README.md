@@ -95,7 +95,7 @@ public async Task<Tournament> Example()
 {
     TournamentInfo info = new()
     {
-        AcceptAttachments = True,
+        AcceptAttachments = true,
         TournamentType = TournamentType.DoubleElimination,
         Name = "SSBM Weekly #46"
     };
