@@ -78,12 +78,11 @@ You can also inject `IChallongeCredentials` to access the username and api key b
 
 ### Basic Functionalities
 
-Assume we have an already-configured `ChallongeClient` `_client` as a field in our class. Instantiate a `TournamentInfo` object:
+Assume we have an already-configured `ChallongeClient` `_client` as a field in our class.
 
 ```C#
 public async Task<Tournament> TournamentExample()
 {
-    IEnumerable<Participant> participants = new List<Participant>();
     TournamentInfo info = new()
     {
         AcceptAttachments = True,
