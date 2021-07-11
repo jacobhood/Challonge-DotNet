@@ -1,7 +1,7 @@
 ﻿# Challonge.NET
 
 Challonge.NET is a C# implementation of the [CHALLONGE! API](https://api.challonge.com/v1) 
-built on .NET. It exposes asynchronous methods for interacting with the API.
+built on .NET that exposes asynchronous methods for interacting with the API.
 
 ## Requirements
 
@@ -16,11 +16,12 @@ The library is available through NuGet. Install as you would any other package.
 
 ### Console Application
 
-Add these `using` directives to `Program.cs` (or wherever you intend to call the API):
+Add these `using` directives:
 
 ```C#
 using Challonge.Api;
 using Challonge.Objects;
+using System.Net.Http;
 ```
 Create the client and use its methods:
 
@@ -74,3 +75,10 @@ public class HomeController : Controller
 }
 ```
 You can also inject `IChallongeCredentials` to access the username and api key being used by the client.
+
+## Notes
+
+Disclaimer: These observations come from my own testing and may not be totally accurate.
+
+- Match attachment files must be images
+- The result of `GetParticipantsAsync` after calling `UndoCheckInParticipantAsync` does not display the correct checked-in status, but the result of `UndoCheckInParticipantAsync` does.
