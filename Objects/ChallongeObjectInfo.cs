@@ -6,7 +6,6 @@ namespace Challonge.Objects
 {
     public abstract class ChallongeObjectInfo
     {
-        internal abstract bool Validate();
         internal abstract Dictionary<string, object> ToDictionary(bool ignoreNulls);
         private protected Dictionary<string, object> ToDictionaryWithKeyPrefix(string prefix, bool ignoreNulls)
         {

@@ -51,7 +51,7 @@ using Challonge.Extensions.DependencyInjection;
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddChallonge("username", "apiKey");
-    // Consider storing your credentials outside your source code 
+    // Consider storing credentials outside your source code
 }
 ```
 Add the appropriate `using` directives to your controller:
@@ -76,9 +76,50 @@ public class HomeController : Controller
 ```
 You can also inject `IChallongeCredentials` to access the username and api key being used by the client.
 
+### Basic Functionalities
+
+Assume we have an already-configured `ChallongeClient` `_client` as a field in our class. Instantiate a `TournamentInfo` object:
+
+```C#
+    public async Task<Tournament> TournamentExample()
+    {
+        IEnumerable<Participant> participants = new List<Participant>();
+        TournamentInfo info = new()
+        {
+            AcceptAttachments = True,
+            TournamentType = TournamentType.DoubleElimination,
+            Name = "SSBM Weekly #46"
+        };
+        Tournament tournament = await _client.CreateTournamentAsync(info);
+
+        for (int i = 0; i < 5; i++)
+        {
+            ParticipantInfo pInfo = new()
+            {
+                Name = $"player{i}"
+            };
+            await _client.CreateParticipantAsync(tournament, pInfo);
+        }
+
+        IEnumerable<Participant> participants = await _client.RandomizeParticipantsAsync(tournament);
+
+        foreach (Participant p in participants)
+        {
+            ParticipantInfo pInfo = new();
+            pInfo.Misc = p.Seed % 2 == 0 ? "Even seed" : "Odd seed";
+            await _client.UpdateParticipantAsync(p, pInfo);
+        }
+
+        tournament = await _client.GetTournamentByIdAsync(tournament.Id);
+        return tournament;
+    }
+```
+
 ## Notes
 
-Disclaimer: These observations come from my own testing and may not be totally accurate.
+These observations come from my own testing and may not be totally accurate.
 
 - Match attachment files must be images
-- The result of `GetParticipantsAsync` after calling `UndoCheckInParticipantAsync` does not display the correct checked-in status, but the result of `UndoCheckInParticipantAsync` does.
+- The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync`.
+ This behavior has been documented by authors of other implementations of this API and is most likely a Challonge-side issue.
+- The current set of possible values of a tournament's state is unknown, but further testing would probably yield some insight. I'll release an update if I figure this out.

@@ -21,10 +21,5 @@ namespace Challonge.Objects
 
             return dictionary;
         }
-
-        internal override bool Validate()
-        {
-            return Asset?.Content != null || !string.IsNullOrEmpty(Url) || !string.IsNullOrEmpty(Description);
-        }
     }
 }

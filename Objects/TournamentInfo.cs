@@ -114,10 +114,5 @@ namespace Challonge.Objects
         {
             return ToDictionaryWithKeyPrefix("tournament", ignoreNulls);
         }
-
-        internal override bool Validate()
-        {
-            return !string.IsNullOrEmpty(Name);
-        }
     }
 }

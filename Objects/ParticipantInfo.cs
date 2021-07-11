@@ -25,10 +25,5 @@ namespace Challonge.Objects
         {
             return ToDictionaryWithKeyPrefix("participant", ignoreNulls);
         }
-
-        internal override bool Validate()
-        {
-            return !string.IsNullOrEmpty(Name);
-        }
     }
 }

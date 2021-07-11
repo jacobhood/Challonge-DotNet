@@ -39,10 +39,5 @@ namespace Challonge.Objects
 
             return dictionary;
         }
-
-        internal override bool Validate()
-        {
-            return WinnerId == null || (Scores?.Any() ?? false);
-        }
     }
 }
