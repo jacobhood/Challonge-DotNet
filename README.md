@@ -81,38 +81,38 @@ You can also inject `IChallongeCredentials` to access the username and api key b
 Assume we have an already-configured `ChallongeClient` `_client` as a field in our class. Instantiate a `TournamentInfo` object:
 
 ```C#
-    public async Task<Tournament> TournamentExample()
+public async Task<Tournament> TournamentExample()
+{
+    IEnumerable<Participant> participants = new List<Participant>();
+    TournamentInfo info = new()
     {
-        IEnumerable<Participant> participants = new List<Participant>();
-        TournamentInfo info = new()
+        AcceptAttachments = True,
+        TournamentType = TournamentType.DoubleElimination,
+        Name = "SSBM Weekly #46"
+    };
+    Tournament tournament = await _client.CreateTournamentAsync(info);
+
+    for (int i = 0; i < 5; i++)
+    {
+        ParticipantInfo pInfo = new()
         {
-            AcceptAttachments = True,
-            TournamentType = TournamentType.DoubleElimination,
-            Name = "SSBM Weekly #46"
+            Name = $"player{i}"
         };
-        Tournament tournament = await _client.CreateTournamentAsync(info);
-
-        for (int i = 0; i < 5; i++)
-        {
-            ParticipantInfo pInfo = new()
-            {
-                Name = $"player{i}"
-            };
-            await _client.CreateParticipantAsync(tournament, pInfo);
-        }
-
-        IEnumerable<Participant> participants = await _client.RandomizeParticipantsAsync(tournament);
-
-        foreach (Participant p in participants)
-        {
-            ParticipantInfo pInfo = new();
-            pInfo.Misc = p.Seed % 2 == 0 ? "Even seed" : "Odd seed";
-            await _client.UpdateParticipantAsync(p, pInfo);
-        }
-
-        tournament = await _client.GetTournamentByIdAsync(tournament.Id);
-        return tournament;
+        await _client.CreateParticipantAsync(tournament, pInfo);
     }
+
+    IEnumerable<Participant> participants = await _client.RandomizeParticipantsAsync(tournament);
+
+    foreach (Participant p in participants)
+    {
+        ParticipantInfo pInfo = new();
+        pInfo.Misc = p.Seed % 2 == 0 ? "Even seed" : "Odd seed";
+        await _client.UpdateParticipantAsync(p, pInfo);
+    }
+
+    tournament = await _client.GetTournamentByIdAsync(tournament.Id);
+    return tournament;
+}
 ```
 
 ## Notes
