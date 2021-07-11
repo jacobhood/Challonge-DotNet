@@ -28,7 +28,7 @@ namespace Challonge.Objects
 
         internal override bool Validate()
         {
-            throw new System.NotImplementedException();
+            return !string.IsNullOrEmpty(Name);
         }
     }
 }

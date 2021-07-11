@@ -42,7 +42,7 @@ namespace Challonge.Objects
 
         internal override bool Validate()
         {
-            return WinnerId == null || Scores.Any();
+            return WinnerId == null || (Scores?.Any() ?? false);
         }
     }
 }
