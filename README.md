@@ -81,7 +81,7 @@ You can also inject `IChallongeCredentials` to access the username and api key b
 Assume we have an already-configured `ChallongeClient` `_client` as a field in our class.
 
 ```C#
-public async Task<Tournament> TournamentExample()
+public async Task<Tournament> Example()
 {
     TournamentInfo info = new()
     {
@@ -119,6 +119,6 @@ public async Task<Tournament> TournamentExample()
 These observations come from my own testing and may not be totally accurate.
 
 - Match attachment files must be images.
-- The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync` after their check-in is undone.
+- The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync` after undoing their check-in.
  This behavior has been documented by authors of other implementations of this API and is most likely a Challonge-side issue.
 - The current set of possible values of a tournament's state is unknown, but further testing would probably yield some insight. I'll release an update if I figure this out.
