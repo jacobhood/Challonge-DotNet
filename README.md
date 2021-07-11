@@ -1,6 +1,6 @@
-﻿# Challonge.NET
+﻿# Challonge-DotNet
 
-Challonge.NET is a C# implementation of the [CHALLONGE! API](https://api.challonge.com/v1) 
+Challonge-DotNet is a C# implementation of the [CHALLONGE! API](https://api.challonge.com/v1) 
 built on .NET that exposes asynchronous methods for interacting with the API.
 
 ## Requirements
@@ -19,9 +19,9 @@ The library will soon be available on Nuget.
 Add these `using` directives:
 
 ```C#
+using System.Net.Http;
 using Challonge.Api;
 using Challonge.Objects;
-using System.Net.Http;
 ```
 Create the client and use its methods:
 
@@ -41,7 +41,7 @@ class Program
 
 ### ASP.NET Core Web Application
 
-Challonge.NET supports dependency injection using the built-in dependency injection framework.
+Challonge-DotNet supports dependency injection using the built-in dependency injection framework.
 
 In `Startup.cs`:
 ```C#
@@ -119,6 +119,6 @@ public async Task<Tournament> TournamentExample()
 These observations come from my own testing and may not be totally accurate.
 
 - Match attachment files must be images.
-- The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync`.
+- The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync` after their check-in is undone.
  This behavior has been documented by authors of other implementations of this API and is most likely a Challonge-side issue.
 - The current set of possible values of a tournament's state is unknown, but further testing would probably yield some insight. I'll release an update if I figure this out.

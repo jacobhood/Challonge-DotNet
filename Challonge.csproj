@@ -9,6 +9,7 @@
     <Description>A library for interacting with the Challonge API built on .NET.</Description>
     <PackageTags>Challonge, API</PackageTags>
     <Version>1.0.0-beta1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

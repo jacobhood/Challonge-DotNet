@@ -20,7 +20,7 @@ namespace Challonge.Exceptions
                 HttpStatusCode.Unauthorized => "Unauthorized - Invalid credentials or " +
                     "insufficient permissions.",
                 HttpStatusCode.NotAcceptable => "Invalid response format specified. " +
-                    "This is most likely an internal Challonge.NET error, " +
+                    "This is most likely an internal Challonge-DotNet error, " +
                     "please report an issue in the Github repository.",
                 HttpStatusCode.InternalServerError => "An unspecified Challonge server error occurred.",
                 HttpStatusCode.UnprocessableEntity or HttpStatusCode.NotFound =>
