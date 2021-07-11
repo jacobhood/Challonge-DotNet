@@ -10,7 +10,7 @@ built on .NET that exposes asynchronous methods for interacting with the API.
 
 ## Installation
 
-The library is available on NuGet.  
+A beta version of the library is available on NuGet.
 
 Package Manager:
 ```
