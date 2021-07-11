@@ -131,4 +131,4 @@ These observations come from my own testing and may not be totally accurate.
 - Match attachment files must be images.
 - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync` after undoing their check-in.
  This behavior has been documented by authors of other implementations of this API and is most likely a Challonge-side issue.
-- I couldn't find the current set of possible values of a tournament's state.  Further testing would probably yield some insight, I'll release an update if I figure this out.
+- I couldn't find the current set of possible values of a tournament's state explicitly listed anywhere.  Further testing would probably yield some insight, I'll release an update if I figure this out.
