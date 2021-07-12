@@ -6,10 +6,12 @@
     <PackageId>Challonge-DotNet</PackageId>
     <Authors>Jacob Hood</Authors>
     <Product>Challonge</Product>
-    <Description>A library for interacting with the Challonge API built on .NET.</Description>
+    <Description>A library for interacting with the Challonge API built on .NET 5.0.</Description>
     <PackageTags>Challonge, API</PackageTags>
-    <Version>1.0.0-beta1</Version>
+    <Version>1.0.0-beta2</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/jacobhood/Challonge-DotNet</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
