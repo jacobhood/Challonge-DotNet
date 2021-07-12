@@ -136,4 +136,4 @@ These observations come from my own testing and may not be totally accurate.
 returned from `GetParticipantAsync` after undoing their check-in. This behavior has been documented [elsewhere](https://github.com/ZEDGR/pychallonge#api-issues), 
 so there's a chance it's a Challonge-side issue.
 - Some of the enums are almost certainly incomplete. For example, I couldn't find an up-to-date list of tournament states, so I don't know whether the 
-`TournamentType` enum contains all possible values, or if it contains invalid values. I'll provide updates as discrepancies are discovered.
+`TournamentState` enum contains all possible values, or if it contains invalid values. I'll provide updates as discrepancies are discovered.
