@@ -116,7 +116,7 @@ public async Task<Tournament> Example()
         ParticipantInfo pInfo = new()
         {
             Misc = p.Seed % 2 == 0 ? "Even seed" : "Odd seed";
-        }
+        };
         await _client.UpdateParticipantAsync(p, pInfo);
     }
 
@@ -131,6 +131,6 @@ These observations come from my own testing and may not be totally accurate.
 
 - Match attachment files must be images.
 - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync` after undoing their check-in.
- This behavior has been documented [elsewhere](https://github.com/ZEDGR/pychallonge#api-issues)
+ This behavior has been documented [elsewhere](https://github.com/ZEDGR/pychallonge#api-issues), so there's a chance it's a Challonge-side issue.
 - Some of the enums are almost certainly incomplete. For example, I couldn't find the current possible tournament states explicitly listed anywhere, so the `TournamentState` enum may be missing values. 
 I'll provide updates as these incongruities are discovered.
