@@ -10,17 +10,19 @@ built on .NET that exposes asynchronous methods for interacting with the API.
 
 ## Installation
 
-The library is available through NuGet. Other options:  
+Recommended methods:
 
-Package Manager:
-```
-PM> Install-Package Challonge-DotNet -Version 1.0.0-beta1
-```
+- Package Manager UI
 
-.NET CLI:
-```
-> dotnet add package Challonge-DotNet --version 1.0.0-beta1
-```
+- Package Manager Console
+    ```
+    PM> Install-Package Challonge-DotNet -Version 1.0.0-beta1
+    ```
+
+- .NET CLI
+    ```
+    > dotnet add package Challonge-DotNet --version 1.0.0-beta1
+    ```
 
 ## Usage
 
