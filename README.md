@@ -85,7 +85,7 @@ public class HomeController : Controller
 ```
 You can also inject `IChallongeCredentials` to access the username and api key being used by the client.
 
-### Basic Functionalities
+### Basic Functionality
 
 Assume we have an already-configured `ChallongeClient` `_client` as a field in our class.
 
