@@ -61,7 +61,6 @@ using Challonge.Extensions.DependencyInjection;
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddChallonge("username", "apiKey");
-    // Consider storing credentials outside your source code
 }
 ```
 Add the appropriate `using` directives to your controller:
@@ -130,6 +129,6 @@ These observations come from my own testing and may not be totally accurate.
 
 - Match attachment files must be images.
 - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` returned from `GetParticipantAsync` after undoing their check-in.
- This behavior has been reported by authors of other implementations of this API and is most likely a Challonge-side issue.
-- Some of the enums are almost certainly incomplete. For example, I couldn't find the current set of possible tournament states explicitly documented anywhere, so the `TournamentState` enum may be missing values. 
+ This behavior has been documented [elsewhere](https://github.com/ZEDGR/pychallonge#api-issues)
+- Some of the enums are almost certainly incomplete. For example, I couldn't find the current possible tournament states explicitly listed anywhere, so the `TournamentState` enum may be missing values. 
 I'll provide updates as these incongruities are discovered.
