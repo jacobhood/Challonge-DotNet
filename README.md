@@ -135,5 +135,5 @@ These observations come from my own testing and may not be totally accurate.
 - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` 
 returned from `GetParticipantAsync` after undoing their check-in. This behavior has been documented [elsewhere](https://github.com/ZEDGR/pychallonge#api-issues), 
 so there's a chance it's a Challonge-side issue.
-- Some of the enums are almost certainly incomplete. For example, I couldn't find an up-to-date list of tournament states, so I don't know whether the 
-`TournamentState` enum contains all possible values, or if it contains invalid values. I'll provide updates as discrepancies are discovered.
+- Some of the enums are almost certainly incomplete. For example, I couldn't find an up-to-date list of tournament states, so I don't know if the 
+`TournamentState` enum contains all possible values, nor if it contains invalid values. I'll provide updates as discrepancies are discovered.
