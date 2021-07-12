@@ -113,8 +113,10 @@ public async Task<Tournament> Example()
 
     foreach (Participant p in participants)
     {
-        ParticipantInfo pInfo = new();
-        pInfo.Misc = p.Seed % 2 == 0 ? "Even seed" : "Odd seed";
+        ParticipantInfo pInfo = new()
+        {
+            Misc = p.Seed % 2 == 0 ? "Even seed" : "Odd seed";
+        }
         await _client.UpdateParticipantAsync(p, pInfo);
     }
 
