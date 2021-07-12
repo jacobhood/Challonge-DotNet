@@ -65,7 +65,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddChallonge("username", "apiKey");
 }
 ```
-Add the appropriate `using` directives to your controller:
+Add the appropriate `using` directives to your controller file:
 
 ```C#
 using Challonge.Api;
