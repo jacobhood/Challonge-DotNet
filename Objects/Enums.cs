@@ -34,7 +34,13 @@ namespace Challonge.Objects
         [EnumMember(Value = "swiss")]
         Swiss,
         [EnumMember(Value = "free for all")]
-        FreeForAll
+        FreeForAll,
+        [EnumMember(Value = "time trial")]
+        TimeTrial,
+        [EnumMember(Value = "single race")]
+        SingleRace,
+        [EnumMember(Value = "grand prix")]
+        GrandPrix,
     }
     public enum RankingMethod
     {
