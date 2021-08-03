@@ -120,6 +120,9 @@ ipch/
 # Visual Studio Trace Files
 *.e2e
 
+# JetBrains Rider intellisense
+.idea/
+
 # TFS 2012 Local Workspace
 $tf/
 
