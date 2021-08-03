@@ -32,7 +32,7 @@ Add these `using` directives:
 
 ```C#
 using System.Net.Http;
-using System.Collections.Generic
+using System.Collections.Generic;
 using Challonge.Api;
 using Challonge.Objects;
 ```
