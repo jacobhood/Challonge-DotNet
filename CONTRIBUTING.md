@@ -5,7 +5,7 @@
 If you'd like to propose a change to Challonge-DotNet, please create an issue in this repository detailing the enhancement/fix.  
 To contribute:  
 
-1. Select/create an unassigned issue
+1. Select an unassigned issue, or create a new one
 2. Assign the issue to yourself
 3. Implement the change on your branch
 4. Submit a pull request with the issue number in the description
