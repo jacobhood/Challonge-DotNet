@@ -7,6 +7,17 @@ namespace Challonge.Objects
 {
     public class Tournament : ChallongeObject
     {
+        public class NonEliminationData
+        {
+            [JsonProperty("current_round")]
+            public int? CurrentRound { get; private set; }
+            
+            [JsonProperty("participants_per_match")]
+            public int? ParticipantsPerMatch { get; private set; }
+            
+            internal NonEliminationData() { }
+        }
+        
         [JsonProperty("id")]
         public long Id { get; private set; }
 
@@ -201,8 +212,7 @@ namespace Challonge.Objects
         public bool? MandatoryDonation { get; private set; }
 
         [JsonProperty("non_elimination_tournament_data")]
-        // MAKE OWN TYPE?
-        public IDictionary<string, string> NonEliminationTournamentData { get; private set; }
+        public NonEliminationData NonEliminationTournamentData { get; private set; }
 
         [JsonProperty("auto_assign_stations")]
         public bool? AutoAssignStations { get; private set; }
