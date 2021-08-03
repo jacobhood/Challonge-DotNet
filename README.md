@@ -32,6 +32,7 @@ Add these `using` directives:
 
 ```C#
 using System.Net.Http;
+using System.Collections.Generic
 using Challonge.Api;
 using Challonge.Objects;
 ```
@@ -46,7 +47,7 @@ class Program
 	
     static void Main(string[] args)
     {
-        var tournaments = _client.GetTournamentsAsync().Result;
+        IEnumerable<Tournament> tournaments = _client.GetTournamentsAsync().Result;
     }
 }
 ```
