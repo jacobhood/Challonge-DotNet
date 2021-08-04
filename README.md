@@ -134,9 +134,9 @@ The ChallongeTests project contains a minimal set of tests you can run to verify
 (Visual Studio 2019 is strongly recommended for this).  
 
 First, create CHALLONGE_USERNAME and CHALLONGE_API_KEY environment variables and set them to the 
-appropriate values. Then, run the tests using your preferred method. Several tournaments are created 
-and deleted over the course of the tests, but none should linger if all tests pass. In the event of test 
-failure, run this program to handle any cleanup:
+appropriate values. Then, run the tests using your preferred method. The tests create, update, and 
+delete several tournaments, but none should linger if all tests pass. In the event of test failure, 
+run this program to handle any cleanup:
 
 ```C#
 using System;
