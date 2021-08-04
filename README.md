@@ -134,8 +134,9 @@ The ChallongeTests project contains a minimal set of tests you can run to verify
 (Visual Studio 2019 is strongly recommended for this).  
 
 First, create CHALLONGE_USERNAME and CHALLONGE_API_KEY environment variables and set them to the 
-appropriate values. Then, run the tests using your preferred method. They create and delete several tournaments,
-and if all tests pass, no tournaments should be left behind. In the event of test failure, run this program to
+appropriate values. Then, run the tests using your preferred method. Several tournaments are created 
+and deleted during 
+and if all pass, no tournaments should be left behind. In the event of test failure, run this program to
 handle any cleanup:
 
 ```C#
@@ -160,7 +161,7 @@ namespace DeleteTestTournaments
             IEnumerable<Tournament> tournaments = await _client.GetTournamentsAsync();
             foreach(Tournament t in tournaments)
             {
-                if (t.Name.ToLowerInvariant().Contains("test") && t.Name.EndsWith("--__-_--__-_"))
+                if (t.Name.ToLowerInvariant().Contains("test") && t.Name.EndsWith("-_-_Challonge-DotNetTest-_-_"))
                 {
                     await _client.DeleteTournamentAsync(t);
                 }

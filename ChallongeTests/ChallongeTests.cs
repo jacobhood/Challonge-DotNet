@@ -14,13 +14,12 @@ namespace ChallongeTests
     public class ChallongeTests
     {
         private readonly ChallongeClient _client;
-        private readonly string _testTournamentSuffix;
+        private const string _testTournamentSuffix = "-_-_Challonge-DotNetTest-_-_";
         public ChallongeTests()
         {
             string username = Environment.GetEnvironmentVariable("CHALLONGE_USERNAME");
             string key = Environment.GetEnvironmentVariable("CHALLONGE_API_KEY");
 
-            _testTournamentSuffix = "--__-_--__-_";
             _client = new ChallongeClient(new HttpClient(), new ChallongeCredentials(username, key));
         }
 
@@ -29,9 +28,9 @@ namespace ChallongeTests
         {
             TournamentInfo[] tis = new TournamentInfo[]
             {
-                new(){ Name = "Test1" + _testTournamentSuffix},
-                new(){ Name = "Test2" + _testTournamentSuffix},
-                new(){ Name = "Test3" + _testTournamentSuffix}
+                new(){ Name = "Test1" + _testTournamentSuffix },
+                new(){ Name = "Test2" + _testTournamentSuffix },
+                new(){ Name = "Test3" + _testTournamentSuffix }
             };
 
             List<Tournament> testTournaments = new();
