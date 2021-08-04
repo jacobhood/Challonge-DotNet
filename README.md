@@ -128,6 +128,52 @@ public async Task<Tournament> Example()
 }
 ```
 
+## Tests
+
+The ChallongeTests project contains a minimal set of tests you can run to verify basic functionality
+(Visual Studio 2019 is strongly recommended for this).  
+
+First, create CHALLONGE_USERNAME and CHALLONGE_API_KEY environment variables and set them to the 
+appropriate values. Then, run the tests using your preferred method. They create and delete several tournaments,
+and if all tests pass, no tournaments should be left behind. In the event of test failure, run this program to
+handle any cleanup:
+
+```C#
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Challonge.Api;
+using Challonge.Objects;
+
+namespace DeleteTestTournaments
+{
+    class Program
+    {
+        private static readonly ChallongeCredentials _credentials = new(
+            Environment.GetEnvironmentVariable("CHALLONGE_USERNAME"), 
+            Environment.GetEnvironmentVariable("CHALLONGE_API_KEY"));
+        private static readonly ChallongeClient _client = new(new HttpClient(), _credentials);
+
+        static async Task Main(string[] args)
+        {
+            IEnumerable<Tournament> tournaments = await _client.GetTournamentsAsync();
+            foreach(Tournament t in tournaments)
+            {
+                if (t.Name.ToLowerInvariant().Contains("test") && t.Name.EndsWith("--__-_--__-_"))
+                {
+                    await _client.DeleteTournamentAsync(t);
+                }
+            }
+        }
+    }
+}
+```
+  
+Coverage is not yet complete, and until then, the test project will remain under active development.
+It will also be updated as needed to test any changes to Challonge-DotNet.
+
+
 ## Notes
 
 These observations come from my own testing and may not be totally accurate.

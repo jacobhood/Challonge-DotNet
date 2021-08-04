@@ -91,7 +91,7 @@ namespace Challonge.Objects
         public DateTime? CompletedAt { get; private set; }
 
         [JsonProperty("suggested_play_order")]
-        public int SuggestedPlayOrder { get; private set; }
+        public int? SuggestedPlayOrder { get; private set; }
 
         [JsonProperty("forfeited")]
         public bool? Forfeited { get; private set; }
