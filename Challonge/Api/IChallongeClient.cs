@@ -128,6 +128,14 @@ namespace Challonge.Api
         public Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo, bool ignoreNulls = true);
 
         /// <summary>
+        /// Adds a group of new participants to a tournament.
+        /// </summary>
+        /// <param name="tournament">The tournament to which to add the new participants.</param>
+        /// <param name="participantInfos">The details of the new participants.</param>
+        /// <returns>A task representing the new participants</returns>
+        public Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament, IEnumerable<ParticipantInfo> participantInfos);
+
+        /// <summary>
         /// Gets a participant.
         /// </summary>
         /// <param name="tournament">The participant's tournament.</param>
