@@ -141,6 +141,7 @@ namespace ChallongeTests
 
             int count = 5;
 
+            // tests basic participant creation and checking-in
             for (int i = 1; i <= count; i++)
             {
                 string name = $"player{i}";
@@ -182,6 +183,25 @@ namespace ChallongeTests
             p0 = await _client.GetParticipantAsync(t, p0.Id);
             Assert.AreEqual(newName, p0.Name);
 
+            // tests participants bulk add
+            List<ParticipantInfo> participantInfos = new();
+            for (int i = count + 1; i <= count + count; i++)
+            {
+                string name = $"player{i}";
+                ParticipantInfo pi = new()
+                {
+                    Name = name,
+                    Seed = i - 1
+                };
+                participantInfos.Add(pi);
+            }
+            List<Participant> result = (await _client.CreateParticipantsAsync(t, participantInfos)).ToList();
+            for (int i = 0; i < count; i++)
+            {
+                Assert.AreEqual(participantInfos[i].Name, result[i].Name);
+                Assert.AreEqual(participantInfos[i].Seed, result[i].Seed);
+            }
+            
             await _client.ClearParticipantsAsync(t);
 
             IEnumerable<Participant> noParticipants = await _client.GetParticipantsAsync(t);
