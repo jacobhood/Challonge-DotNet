@@ -130,6 +130,9 @@ namespace Challonge.Api
         /// <summary>
         /// Adds a group of new participants to a tournament.
         /// </summary>
+        /// <remarks>
+        /// If an invalid participant is detected, bulk participant creation will halt and any previously added participants (from this API request) will be rolled back. 
+        /// </remarks>
         /// <param name="tournament">The tournament to which to add the new participants.</param>
         /// <param name="participantInfos">The details of the new participants.</param>
         /// <returns>A task representing the new participants</returns>
