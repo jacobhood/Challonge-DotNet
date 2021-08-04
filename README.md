@@ -135,9 +135,8 @@ The ChallongeTests project contains a minimal set of tests you can run to verify
 
 First, create CHALLONGE_USERNAME and CHALLONGE_API_KEY environment variables and set them to the 
 appropriate values. Then, run the tests using your preferred method. Several tournaments are created 
-and deleted during 
-and if all pass, no tournaments should be left behind. In the event of test failure, run this program to
-handle any cleanup:
+and deleted over the course of the tests, but none should linger if all tests pass. In the event of test 
+failure, run this program to handle any cleanup:
 
 ```C#
 using System;
