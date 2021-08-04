@@ -130,13 +130,14 @@ public async Task<Tournament> Example()
 
 ## Tests
 
-The ChallongeTests project contains a minimal set of tests you can run to verify basic functionality
-(Visual Studio 2019 is strongly recommended for this).  
+The ChallongeTests project contains a minimal set of tests that validate the 
+core functionality of Challonge-DotNet. Visual Studio 2019 is strongly recommended
+for navigating and running the tests.
 
 First, create CHALLONGE_USERNAME and CHALLONGE_API_KEY environment variables and set them to the 
 appropriate values. Then, run the tests using your preferred method. The tests create, update, and 
 delete several tournaments, but none should linger if all tests pass. In the event of test failure, 
-run this program to handle any cleanup:
+use this program to handle any cleanup:
 
 ```C#
 using System;
@@ -172,7 +173,7 @@ namespace DeleteTestTournaments
 ```
   
 Coverage is not yet complete, and until then, the test project will remain under active development.
-It will also be updated as needed to test any changes to Challonge-DotNet.
+It will also be updated as needed for testing any changes to the library.
 
 
 ## Notes
