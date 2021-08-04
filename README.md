@@ -160,7 +160,8 @@ namespace DeleteTestTournaments
             IEnumerable<Tournament> tournaments = await _client.GetTournamentsAsync();
             foreach(Tournament t in tournaments)
             {
-                if (t.Name.ToLowerInvariant().Contains("test") && t.Name.EndsWith("-_-_Challonge-DotNetTest-_-_"))
+                if (t.Name.ToLowerInvariant().Contains("test") && 
+                     t.Name.EndsWith("-_-_Challonge-DotNetTest-_-_"))
                 {
                     await _client.DeleteTournamentAsync(t);
                 }
