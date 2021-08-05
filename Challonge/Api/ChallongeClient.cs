@@ -165,6 +165,35 @@ namespace Challonge.Api
             return wrapper.Item;
         }
 
+        public async Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament,
+            IEnumerable<ParticipantInfo> participantInfos)
+        {
+            // we convert the participantInfos to a list of dictionaries, and we do not ignore null values
+            JsonSerializerSettings settings = new();
+            settings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
+            
+            IEnumerable<Dictionary<string, object>> dicts =
+                JsonConvert.DeserializeObject<IEnumerable<Dictionary<string, object>>>(
+                    JsonConvert.SerializeObject(participantInfos, settings));
+
+            List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
+            foreach (Dictionary<string, object> dict in dicts)
+            {
+                // bulk add takes invite_name_or email instead of challonge_username and email
+                if (!string.IsNullOrWhiteSpace((string)dict.GetValueOrDefault("challonge_username")))
+                    dict["invite_name_or_email"] = dict["challonge_username"];
+                else if (!string.IsNullOrWhiteSpace((string)dict.GetValueOrDefault("email")))
+                    dict["invite_name_or_email"] = dict["email"];
+                
+                parameters.AddRange(dict.ToDictionary(kv => $"participants[][{kv.Key}]", kv => kv.Value));
+            }
+
+            IEnumerable<ParticipantWrapper> wrappers = await SendRequestAsync<IEnumerable<ParticipantWrapper>>(
+                $"tournaments/{tournament.Id}/participants/bulk_add.json", HttpMethod.Post, parameters);
+
+            return wrappers.Select(w => w.Item);
+        }
+
         public async Task<Participant> GetParticipantAsync(Tournament tournament, long participantId)
         {
             ParticipantWrapper wrapper = await SendRequestAsync<ParticipantWrapper>(

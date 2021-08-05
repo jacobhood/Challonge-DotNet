@@ -107,19 +107,19 @@ namespace Challonge.Helpers
         private static IEnumerable<KeyValuePair<string, object>> CleanParameters(
             IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            Dictionary<string, object> result = new();
+            List<KeyValuePair<string, object>> result = new();
 
-            foreach(KeyValuePair<string, object> kv in parameters ?? new Dictionary<string, object>())
+            foreach(KeyValuePair<string, object> kv in parameters ?? new List<KeyValuePair<string, object>>())
             {
                 string key = kv.Key;
                 object value = kv.Value;
 
-                result.Add(key, value switch
+                result.Add(new(key, value switch
                 {
                     bool b => b.ToString().ToLowerInvariant(),
                     DateTime d => d.ToString("O"),
                     _ => value
-                });
+                }));
             }
 
             return result;
