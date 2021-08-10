@@ -15,8 +15,8 @@ If you'd like to propose a change to Challonge-DotNet, please create an issue in
 
 In a perfect world, any change in functionality would be accompanied by at least one test in the ChallongeTests project.
 In this world, exceptions may be made for minor changes, but the associated issues will be labeled "untested" for tracking 
-since the goal is complete test coverage. Ensure any test `Tournament`s you create end with the suffix provided in the source 
-code (`_testTournamentSuffix`). The cleanup process uses it to identify `Tournament`s created during test execution.
+since the goal is complete test coverage. Ensure any test tournaments you create end with the suffix provided in the source 
+code (`_testTournamentSuffix`). The cleanup process uses it to identify tournaments created during test execution.
 
 ## Style
 

@@ -16,12 +16,12 @@ Recommended methods:
 
 - Package Manager Console
     ```
-    PM> Install-Package Challonge-DotNet -Version 1.0.0-beta3
+    PM> Install-Package Challonge-DotNet -Version 1.0.0
     ```
 
 - .NET CLI
     ```
-    > dotnet add package Challonge-DotNet --version 1.0.0-beta3
+    > dotnet add package Challonge-DotNet --version 1.0.0
     ```
 
 ## Usage
