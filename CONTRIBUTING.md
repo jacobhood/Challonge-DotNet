@@ -14,12 +14,9 @@ If you'd like to propose a change to Challonge-DotNet, please create an issue in
 ### Testing
 
 In a perfect world, any change in functionality would be accompanied by at least one test in the ChallongeTests project.
-In this world, exceptions may be made for minor changes, though in these cases the issues will be labeled 
-"untested" for tracking since the goal is complete test coverage. Some guidelines:
-
-- Ensure any test `Tournament`s you create contain the string "test" (not capitalization-sensitive) and end with the suffix 
-provided in the source code. This allows for easier cleanup in case tests fail.
-- Don't reuse any test tournament names so as to prevent any name clashes with tournaments that haven't been deleted due to test failure.
+In this world, exceptions may be made for minor changes, but the associated issues will be labeled "untested" for tracking 
+since the goal is complete test coverage. Ensure any test `Tournament`s you create end with the suffix provided in the source 
+code (`_testTournamentSuffix`). The cleanup process uses it to identify `Tournament`s created during test execution.
 
 ## Style
 

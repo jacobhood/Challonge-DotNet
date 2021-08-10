@@ -176,7 +176,7 @@ namespace Challonge.Api
                 JsonConvert.DeserializeObject<IEnumerable<Dictionary<string, object>>>(
                     JsonConvert.SerializeObject(participantInfos, settings));
 
-            List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
+            List<KeyValuePair<string, object>> parameters = new();
             foreach (Dictionary<string, object> dict in dicts)
             {
                 // bulk add takes invite_name_or email instead of challonge_username and email

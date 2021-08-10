@@ -13,15 +13,11 @@ namespace ChallongeTests
     [TestClass]
     public class ChallongeTests
     {
-        private readonly ChallongeClient _client;
         private const string _testTournamentSuffix = "-_-_Challonge-DotNetTest-_-_";
-        public ChallongeTests()
-        {
-            string username = Environment.GetEnvironmentVariable("CHALLONGE_USERNAME");
-            string key = Environment.GetEnvironmentVariable("CHALLONGE_API_KEY");
-
-            _client = new ChallongeClient(new HttpClient(), new ChallongeCredentials(username, key));
-        }
+        private static readonly ChallongeClient _client = new(new HttpClient(),
+            new ChallongeCredentials(
+                Environment.GetEnvironmentVariable("CHALLONGE_USERNAME"),
+                Environment.GetEnvironmentVariable("CHALLONGE_API_KEY")));
 
         [TestMethod]
         public async Task TestTournamentCreationDeletion()
@@ -50,8 +46,8 @@ namespace ChallongeTests
                 await Assert.ThrowsExceptionAsync<ChallongeException>(() =>
                     _client.GetTournamentByIdAsync(t.Id));
             }
-
         }
+        
         [TestMethod]
         public async Task TestTournamentUpdate()
         {
@@ -66,8 +62,6 @@ namespace ChallongeTests
 
             Assert.IsTrue(t.AcceptAttachments);
             Assert.AreEqual(newDescription, t.Description);
-
-            await _client.DeleteTournamentAsync(t);
         }
 
         [TestMethod]
@@ -96,9 +90,14 @@ namespace ChallongeTests
             }
 
             IEnumerable<Participant> participants = await _client.GetParticipantsAsync(t);
+            
             Assert.AreEqual(count, participants.Count());
 
             t = await _client.StartTournamentAsync(t);
+
+            Assert.IsNotNull(t.StartedAt);
+            Assert.AreEqual(TournamentState.Underway, t.State);
+
             IEnumerable<Match> matches = await _client.GetMatchesAsync(t, MatchState.Open);
             while (matches.Any())
             {
@@ -124,8 +123,6 @@ namespace ChallongeTests
 
             Assert.IsNotNull(t.CompletedAt);
             Assert.AreEqual(TournamentState.Complete, t.State);
-
-            await _client.DeleteTournamentAsync(t);
         }
 
         [TestMethod]
@@ -141,7 +138,7 @@ namespace ChallongeTests
 
             int count = 5;
 
-            // tests basic participant creation and checking-in
+            // tests basic participant creation
             for (int i = 1; i <= count; i++)
             {
                 string name = $"player{i}";
@@ -150,37 +147,34 @@ namespace ChallongeTests
                     Name = name,
                     Seed = i
                 };
-
                 Participant p = await _client.CreateParticipantAsync(t, pi);
 
                 Assert.AreEqual(name, p.Name);
                 Assert.AreEqual(i, p.Seed);
-
-                await _client.CheckInParticipantAsync(p);
-                p = await _client.GetParticipantAsync(t, p.Id);
-                Assert.IsTrue(p.CheckedIn);
-                p = await _client.UndoCheckInParticipantAsync(p);
-                Assert.IsFalse(p.CheckedIn);
             }
 
             IEnumerable<Participant> participants = await _client.GetParticipantsAsync(t);
+           
             Assert.AreEqual(count, participants.Count());
 
             Participant p0 = participants.ElementAt(0);
             await _client.DeleteParticipantAsync(p0);
+
             await Assert.ThrowsExceptionAsync<ChallongeException>(() => _client.GetParticipantAsync(t, p0.Id));
+            
             participants = await _client.GetParticipantsAsync(t);
+            
             Assert.AreEqual(count - 1, participants.Count());
+            
             p0 = participants.ElementAt(0);
             string newName = "UPDATED PLAYER";
-
             ParticipantInfo newPi = new()
             {
                 Name = newName
             };
-
             await _client.UpdateParticipantAsync(p0, newPi);
             p0 = await _client.GetParticipantAsync(t, p0.Id);
+            
             Assert.AreEqual(newName, p0.Name);
 
             // tests participants bulk add
@@ -207,8 +201,78 @@ namespace ChallongeTests
             IEnumerable<Participant> noParticipants = await _client.GetParticipantsAsync(t);
 
             Assert.AreEqual(0, noParticipants.Count());
+        }
 
-            await _client.DeleteTournamentAsync(t);
+        [TestMethod]
+        public async Task TestParticipantCheckIns()
+        {
+            Tournament t = await _client.CreateTournamentAsync(
+                new TournamentInfo()
+                {
+                    Name = "ParticipantCheckInsTest" + _testTournamentSuffix,
+                    CheckInDuration = 60,
+                    StartAt = DateTime.Now
+                });
+
+            Participant p = await _client.CreateParticipantAsync(
+                t, new ParticipantInfo()
+                {
+                    Name = "player1"
+                });
+
+            p = await _client.CheckInParticipantAsync(p);
+
+            Assert.IsTrue(p.CheckedIn);
+            Assert.IsNotNull(p.CheckedInAt);
+            Assert.IsTrue(p.CheckInOpen);
+
+            p = await _client.UndoCheckInParticipantAsync(p);
+
+            Assert.IsFalse(p.CheckedIn);
+            Assert.IsNull(p.CheckedInAt);
+            Assert.IsTrue(p.CanCheckIn);
+        }
+
+        [TestMethod]
+        public async Task TestTournamentCheckIns()
+        {
+            Tournament t = await _client.CreateTournamentAsync(
+                new TournamentInfo()
+                {
+                    Name = "TournamentCheckInsTest" + _testTournamentSuffix,
+                    CheckInDuration = 60,
+                    StartAt = DateTime.Now
+                });
+
+            Assert.IsNotNull(t.StartedCheckingInAt);
+            Assert.AreEqual(TournamentState.CheckingIn, t.State);
+
+            IEnumerable<Participant> participants = await _client.CreateParticipantsAsync(
+                t, new ParticipantInfo[]
+                {
+                    new() { Name = "player1" },
+                    new() { Name = "player2" }
+                });
+
+            foreach (Participant p in participants)
+            {
+                await _client.CheckInParticipantAsync(p);
+            }
+
+            t = await _client.ProcessTournamentCheckInsAsync(t);
+
+            Assert.AreEqual(TournamentState.CheckedIn, t.State);
+
+            t = await _client.AbortTournamentCheckInAsync(t);
+
+            Assert.IsNull(t.StartedCheckingInAt);
+            Assert.AreEqual(TournamentState.Pending, t.State);
+
+            foreach (Participant p in await _client.GetParticipantsAsync(t))
+            {
+                Assert.IsFalse(p.CheckedIn);
+                Assert.IsNull(p.CheckedInAt);
+            }
         }
 
         [TestMethod]
@@ -219,7 +283,6 @@ namespace ChallongeTests
             string name = "TestAttributes" + _testTournamentSuffix;
             int signupCap = 100;
             DateTime startAt = DateTime.Now.AddDays(1).Date;
-
             TournamentInfo ti = new()
             {
                 AcceptAttachments = true,
@@ -259,22 +322,19 @@ namespace ChallongeTests
             Assert.AreEqual(signupCap, t.SignupCap);
             Assert.AreEqual(TournamentType.DoubleElimination, t.TournamentType);
             Assert.AreEqual(startAt, t.StartAt);
-
-            await _client.DeleteTournamentAsync(t);
         }
 
         [TestMethod]
         public async Task TestMatches()
         {
-            Tournament t = await _client.CreateTournamentAsync(new() { 
-                Name = "MatchTest" + _testTournamentSuffix, 
-                AcceptAttachments = true 
-            });
+            Tournament t = await _client.CreateTournamentAsync(
+                new TournamentInfo() { 
+                    Name = "MatchTest" + _testTournamentSuffix, 
+                    AcceptAttachments = true 
+                });
             Participant p1 = await _client.CreateParticipantAsync(t, new() { Name = "player1" });
             await _client.CreateParticipantAsync(t, new() { Name = "player2" });
-
             t = await _client.StartTournamentAsync(t);
-
             IEnumerable<Match> matches = await _client.GetMatchesAsync(t, MatchState.Open);
 
             Assert.AreEqual(1, matches.Count());
@@ -282,7 +342,6 @@ namespace ChallongeTests
             Match m = matches.ElementAt(0);
             string description = "An attachment test";
             string fileName = "attachmenttest.jpg";
-
             MatchAttachment ma = await _client.CreateMatchAttachmentAsync(m, new()
             {
                 Asset = new(TestImageGenerator.GenerateTestPngBytes(), fileName),
@@ -295,7 +354,6 @@ namespace ChallongeTests
             Score[] scores = m.Player1Id == p1.Id ? 
                 new[] { new Score(3, 0), new Score(3, 0) } :
                 new[] { new Score(0, 3), new Score(0, 3) };
-
             m = await _client.UpdateMatchAsync(m, new()
             {
                 Scores = scores,
@@ -305,7 +363,18 @@ namespace ChallongeTests
             Assert.IsTrue(Enumerable.SequenceEqual(scores, m.Scores));
             Assert.AreEqual(p1.Id, m.WinnerId);
             Assert.AreEqual(MatchState.Complete, m.State);
-            await _client.DeleteTournamentAsync(t);
+        }
+
+        [ClassCleanup]
+        public static async Task Cleanup()
+        {
+            foreach (Tournament t in await _client.GetTournamentsAsync())
+            {
+                if (t.Name.EndsWith(_testTournamentSuffix))
+                {
+                    await _client.DeleteTournamentAsync(t);
+                }
+            }
         }
     }
 }

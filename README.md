@@ -86,9 +86,9 @@ public class HomeController : Controller
     }
 }
 ```
-You can also inject `IChallongeCredentials` to access the username and api key being used by the client.
+You can also inject `IChallongeCredentials` to access the username and api key used by the client.
 
-### Basic Functionality
+### Example
 
 Assume we have an already-configured `ChallongeClient` `_client` as a field in our class.
 
@@ -135,9 +135,8 @@ core functionality of Challonge-DotNet. Visual Studio 2019 is strongly recommend
 for navigating and running the tests.
 
 First, create CHALLONGE_USERNAME and CHALLONGE_API_KEY environment variables and set them to the 
-appropriate values. Then, run the tests using your preferred method. The tests create, update, and 
-delete several tournaments, but none should linger if all tests pass. In the event of test failure, 
-use this program to handle any cleanup:
+appropriate values. Then, run the tests using your preferred method. If you find that the built-in 
+cleanup doesn't execute properly, use this program to remove any residual test tournaments:
 
 ```C#
 using System;
@@ -158,11 +157,9 @@ namespace DeleteTestTournaments
 
         static async Task Main(string[] args)
         {
-            IEnumerable<Tournament> tournaments = await _client.GetTournamentsAsync();
-            foreach(Tournament t in tournaments)
+            foreach(Tournament t in await _client.GetTournamentsAsync())
             {
-                if (t.Name.ToLowerInvariant().Contains("test") && 
-                     t.Name.EndsWith("-_-_Challonge-DotNetTest-_-_"))
+                if (t.Name.EndsWith("-_-_Challonge-DotNetTest-_-_"))
                 {
                     await _client.DeleteTournamentAsync(t);
                 }
@@ -175,10 +172,9 @@ namespace DeleteTestTournaments
 Coverage is not yet complete, and until then, the test project will remain under active development.
 It will also be updated as needed for testing any changes to the library.
 
-
 ## Notes
 
-These observations come from my own testing and may not be totally accurate.
+These observations result from experimenting and debugging, so they may not be totally accurate.
 
 - Match attachment files must be images.
 - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` 
