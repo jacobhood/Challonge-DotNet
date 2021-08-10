@@ -155,7 +155,7 @@ namespace DeleteTestTournaments
             Environment.GetEnvironmentVariable("CHALLONGE_API_KEY"));
         private static readonly ChallongeClient _client = new(new HttpClient(), _credentials);
 
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             foreach(Tournament t in await _client.GetTournamentsAsync())
             {
