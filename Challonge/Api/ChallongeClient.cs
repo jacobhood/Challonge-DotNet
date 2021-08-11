@@ -83,68 +83,108 @@ namespace Challonge.Api
             return GetTournamentByUrlAsync(id.ToString());
         }
 
-        public async Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo, 
-            bool ignoreNulls = true)
+        public async Task<Tournament> UpdateTournamentAsync(string tournament, TournamentInfo tournamentInfo, bool ignoreNulls = true)
         {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}.json", HttpMethod.Put,
+                $"tournaments/{tournament}.json", HttpMethod.Put,
                 tournamentInfo.ToDictionary(ignoreNulls));
 
             return wrapper.Item;
         }
 
-        public async Task DeleteTournamentAsync(Tournament tournament)
+        public async Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo, 
+            bool ignoreNulls = true)
+        {
+            return await UpdateTournamentAsync(tournament.Id.ToString(), tournamentInfo, ignoreNulls);
+        }
+
+        public async Task DeleteTournamentAsync(string tournament)
         {
             await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}.json", HttpMethod.Delete);
+                $"tournaments/{tournament}.json", HttpMethod.Delete);
+        }
+
+        public async Task DeleteTournamentAsync(Tournament tournament)
+        {
+            await DeleteTournamentAsync(tournament.Id.ToString());
+        }
+
+        public async Task<Tournament> ProcessTournamentCheckInsAsync(string tournament)
+        {
+            TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
+                $"tournaments/{tournament}/process_check_ins.json", HttpMethod.Post);
+
+            return wrapper.Item;
         }
 
         public async Task<Tournament> ProcessTournamentCheckInsAsync(Tournament tournament)
         {
+            return await ProcessTournamentCheckInsAsync(tournament.Id.ToString());
+        }
+
+        public async Task<Tournament> AbortTournamentCheckInAsync(string tournament)
+        {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}/process_check_ins.json", HttpMethod.Post);
+                $"tournaments/{tournament}/abort_check_in.json", HttpMethod.Post);
 
             return wrapper.Item;
         }
-
+        
         public async Task<Tournament> AbortTournamentCheckInAsync(Tournament tournament)
         {
+            return await AbortTournamentCheckInAsync(tournament.Id.ToString());
+        }
+
+        public async Task<Tournament> StartTournamentAsync(string tournament)
+        {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}/abort_check_in.json", HttpMethod.Post);
+                $"tournaments/{tournament}/start.json", HttpMethod.Post);
 
             return wrapper.Item;
         }
-
+        
         public async Task<Tournament> StartTournamentAsync(Tournament tournament)
         {
+            return await StartTournamentAsync(tournament.Id.ToString());
+        }
+
+        public async Task<Tournament> FinalizeTournamentAsync(string tournament)
+        {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}/start.json", HttpMethod.Post);
+                $"tournaments/{tournament}/finalize.json", HttpMethod.Post);
 
             return wrapper.Item;
         }
-
+        
         public async Task<Tournament> FinalizeTournamentAsync(Tournament tournament)
         {
+            return await FinalizeTournamentAsync(tournament.Id.ToString());
+        }
+
+        public async Task<Tournament> ResetTournamentAsync(string tournament)
+        {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}/finalize.json", HttpMethod.Post);
+                $"tournaments/{tournament}/reset.json", HttpMethod.Post);
 
             return wrapper.Item;
         }
-
+        
         public async Task<Tournament> ResetTournamentAsync(Tournament tournament)
         {
+            return await ResetTournamentAsync(tournament.Id.ToString());
+        }
+
+        public async Task<Tournament> OpenTournamentForPredictionsAsync(string tournament)
+        {
             TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}/reset.json", HttpMethod.Post);
+                $"tournaments/{tournament}/open_for_predictions.json", HttpMethod.Post);
 
             return wrapper.Item;
         }
-
+        
         public async Task<Tournament> OpenTournamentForPredictionsAsync(Tournament tournament)
         {
-            TournamentWrapper wrapper = await SendRequestAsync<TournamentWrapper>(
-                $"tournaments/{tournament.Id}/open_for_predictions.json", HttpMethod.Post);
-
-            return wrapper.Item;
+            return await OpenTournamentForPredictionsAsync(tournament.Id.ToString());
         }
 
         public async Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament)
@@ -176,7 +216,7 @@ namespace Challonge.Api
                 JsonConvert.DeserializeObject<IEnumerable<Dictionary<string, object>>>(
                     JsonConvert.SerializeObject(participantInfos, settings));
 
-            List<KeyValuePair<string, object>> parameters = new();
+            List<KeyValuePair<string, object>> parameters = new List<KeyValuePair<string, object>>();
             foreach (Dictionary<string, object> dict in dicts)
             {
                 // bulk add takes invite_name_or email instead of challonge_username and email
