@@ -187,25 +187,36 @@ namespace Challonge.Api
             return await OpenTournamentForPredictionsAsync(tournament.Id.ToString());
         }
 
-        public async Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament)
+        public async Task<IEnumerable<Participant>> GetParticipantsAsync(string tournament)
         {
             IEnumerable<ParticipantWrapper> wrappers = await SendRequestAsync<IEnumerable<ParticipantWrapper>>(
-                $"tournaments/{tournament.Id}/participants.json", HttpMethod.Get);
+                $"tournaments/{tournament}/participants.json", HttpMethod.Get);
 
             return wrappers.Select(w => w.Item);
         }
+        
+        public async Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament)
+        {
+            return await GetParticipantsAsync(tournament.Id.ToString());
+        }
 
-        public async Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo, 
+        public async Task<Participant> CreateParticipantAsync(string tournament, ParticipantInfo participantInfo, 
             bool ignoreNulls = true)
         {
             ParticipantWrapper wrapper = await SendRequestAsync<ParticipantWrapper>(
-                $"tournaments/{tournament.Id}/participants.json", HttpMethod.Post,
+                $"tournaments/{tournament}/participants.json", HttpMethod.Post,
                 participantInfo.ToDictionary(ignoreNulls));
 
             return wrapper.Item;
         }
+        
+        public async Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo, 
+            bool ignoreNulls = true)
+        {
+            return await CreateParticipantAsync(tournament.Id.ToString(), participantInfo, ignoreNulls);
+        }
 
-        public async Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament,
+        public async Task<IEnumerable<Participant>> CreateParticipantsAsync(string tournament,
             IEnumerable<ParticipantInfo> participantInfos)
         {
             // we convert the participantInfos to a list of dictionaries, and we do not ignore null values
@@ -229,17 +240,28 @@ namespace Challonge.Api
             }
 
             IEnumerable<ParticipantWrapper> wrappers = await SendRequestAsync<IEnumerable<ParticipantWrapper>>(
-                $"tournaments/{tournament.Id}/participants/bulk_add.json", HttpMethod.Post, parameters);
+                $"tournaments/{tournament}/participants/bulk_add.json", HttpMethod.Post, parameters);
 
             return wrappers.Select(w => w.Item);
         }
+        
+        public async Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament,
+            IEnumerable<ParticipantInfo> participantInfos)
+        {
+            return await CreateParticipantsAsync(tournament.Id.ToString(), participantInfos);
+        }
 
-        public async Task<Participant> GetParticipantAsync(Tournament tournament, long participantId)
+        public async Task<Participant> GetParticipantAsync(string tournament, long participantId)
         {
             ParticipantWrapper wrapper = await SendRequestAsync<ParticipantWrapper>(
-                $"tournaments/{tournament.Id}/participants/{participantId}.json", HttpMethod.Get);
+                $"tournaments/{tournament}/participants/{participantId}.json", HttpMethod.Get);
 
             return wrapper.Item;
+        }
+        
+        public async Task<Participant> GetParticipantAsync(Tournament tournament, long participantId)
+        {
+            return await GetParticipantAsync(tournament.Id.ToString(), participantId);
         }
 
         public async Task<Participant> UpdateParticipantAsync(Participant participant, ParticipantInfo participantInfo, 
@@ -277,20 +299,30 @@ namespace Challonge.Api
                 HttpMethod.Delete);
         }
 
-        public async Task ClearParticipantsAsync(Tournament tournament)
+        public async Task ClearParticipantsAsync(string tournament)
         {
             await SendRequestAsync<ChallongeMessage>(
-                $"tournaments/{tournament.Id}/participants/clear.json",
+                $"tournaments/{tournament}/participants/clear.json",
                 HttpMethod.Delete);
         }
+        
+        public async Task ClearParticipantsAsync(Tournament tournament)
+        {
+            await ClearParticipantsAsync(tournament.Id.ToString());
+        }
 
-        public async Task<IEnumerable<Participant>> RandomizeParticipantsAsync(Tournament tournament)
+        public async Task<IEnumerable<Participant>> RandomizeParticipantsAsync(string tournament)
         {
             IEnumerable<ParticipantWrapper> wrappers = await SendRequestAsync<IEnumerable<ParticipantWrapper>>(
-                $"tournaments/{tournament.Id}/participants/randomize.json",
+                $"tournaments/{tournament}/participants/randomize.json",
                 HttpMethod.Post);
 
             return wrappers.Select(w => w.Item);
+        }
+        
+        public async Task<IEnumerable<Participant>> RandomizeParticipantsAsync(Tournament tournament)
+        {
+            return await RandomizeParticipantsAsync(tournament.Id.ToString());
         }
 
         public async Task<IEnumerable<Match>> GetMatchesAsync(Tournament tournament, 

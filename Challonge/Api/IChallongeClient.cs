@@ -208,7 +208,18 @@ namespace Challonge.Api
         /// <param name="tournament">The tournament to open for predictions.</param>
         /// <returns>A task representing the updated tournament.</returns>
         public Task<Tournament> OpenTournamentForPredictionsAsync(Tournament tournament);
-
+        
+        /// <summary>
+        /// Gets all of a tournament's participants.
+        /// </summary>
+        /// <param name="tournament">
+        /// The tournament whose participants are to be retrieved.
+        /// Can be the tournament's id (e.g. 10230) or url (e.g 'single_elim' for 'challonge.com/single_elim')
+        /// If assigned to a subdomain, URL format must be subdomain-tournament_url (e.g. 'test-mytourney' for 'test.challonge.com/mytourney')
+        /// </param>
+        /// <returns>A task representing the tournament's participants.</returns>
+        public Task<IEnumerable<Participant>> GetParticipantsAsync(string tournament);
+        
         /// <summary>
         /// Gets all of a tournament's participants.
         /// </summary>
@@ -216,6 +227,19 @@ namespace Challonge.Api
         /// <returns>A task representing the tournament's participants.</returns>
         public Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament);
 
+        /// <summary>
+        /// Adds a new participant to a tournament.
+        /// </summary>
+        /// <param name="tournament">
+        /// The tournament to which to add the new participant.
+        /// Can be the tournament's id (e.g. 10230) or url (e.g 'single_elim' for 'challonge.com/single_elim')
+        /// If assigned to a subdomain, URL format must be subdomain-tournament_url (e.g. 'test-mytourney' for 'test.challonge.com/mytourney')
+        /// </param>
+        /// <param name="participantInfo">The details of the new participant.</param>
+        /// <param name="ignoreNulls">Indicates whether null-valued properties of participantInfo should be sent to Challonge.</param>
+        /// <returns>A task representing the new participant.</returns>
+        public Task<Participant> CreateParticipantAsync(string tournament, ParticipantInfo participantInfo, bool ignoreNulls = true);
+        
         /// <summary>
         /// Adds a new participant to a tournament.
         /// </summary>
@@ -231,10 +255,37 @@ namespace Challonge.Api
         /// <remarks>
         /// If an invalid participant is detected, bulk participant creation will halt and any previously added participants (from this API request) will be rolled back. 
         /// </remarks>
+        /// <param name="tournament">
+        /// The tournament to which to add the new participants.
+        /// Can be the tournament's id (e.g. 10230) or url (e.g 'single_elim' for 'challonge.com/single_elim')
+        /// If assigned to a subdomain, URL format must be subdomain-tournament_url (e.g. 'test-mytourney' for 'test.challonge.com/mytourney')
+        /// </param>
+        /// <param name="participantInfos">The details of the new participants.</param>
+        /// <returns>A task representing the new participants</returns>
+        public Task<IEnumerable<Participant>> CreateParticipantsAsync(string tournament, IEnumerable<ParticipantInfo> participantInfos);
+        
+        /// <summary>
+        /// Adds a group of new participants to a tournament.
+        /// </summary>
+        /// <remarks>
+        /// If an invalid participant is detected, bulk participant creation will halt and any previously added participants (from this API request) will be rolled back. 
+        /// </remarks>
         /// <param name="tournament">The tournament to which to add the new participants.</param>
         /// <param name="participantInfos">The details of the new participants.</param>
         /// <returns>A task representing the new participants</returns>
         public Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament, IEnumerable<ParticipantInfo> participantInfos);
+
+        /// <summary>
+        /// Gets a participant.
+        /// </summary>
+        /// <param name="tournament">
+        /// The participant's tournament.
+        /// Can be the tournament's id (e.g. 10230) or url (e.g 'single_elim' for 'challonge.com/single_elim')
+        /// If assigned to a subdomain, URL format must be subdomain-tournament_url (e.g. 'test-mytourney' for 'test.challonge.com/mytourney')
+        /// </param>
+        /// <param name="participantId">The participant's ID.</param>
+        /// <returns>A task representing the participant.</returns>
+        public Task<Participant> GetParticipantAsync(string tournament, long participantId);
 
         /// <summary>
         /// Gets a participant.
@@ -278,10 +329,32 @@ namespace Challonge.Api
         /// <summary>
         /// Deletes all participants of a tournament if the tournament has not yet started.
         /// </summary>
+        /// <param name="tournament">
+        /// The tournament whose participants are to be deleted.
+        /// /// Can be the tournament's id (e.g. 10230) or url (e.g 'single_elim' for 'challonge.com/single_elim')
+        /// If assigned to a subdomain, URL format must be subdomain-tournament_url (e.g. 'test-mytourney' for 'test.challonge.com/mytourney')
+        /// </param>
+        /// <returns>An empty task.</returns>
+        public Task ClearParticipantsAsync(string tournament);
+        
+        /// <summary>
+        /// Deletes all participants of a tournament if the tournament has not yet started.
+        /// </summary>
         /// <param name="tournament">The tournament whose participants are to be deleted.</param>
         /// <returns>An empty task.</returns>
         public Task ClearParticipantsAsync(Tournament tournament);
 
+        /// <summary>
+        /// Randomizes a tournament's seeds if it has not yet started.
+        /// </summary>
+        /// <param name="tournament">
+        /// The tournament for which to randomize seeds.
+        /// Can be the tournament's id (e.g. 10230) or url (e.g 'single_elim' for 'challonge.com/single_elim')
+        /// If assigned to a subdomain, URL format must be subdomain-tournament_url (e.g. 'test-mytourney' for 'test.challonge.com/mytourney')
+        /// </param>
+        /// <returns>A task representing the updated participants.</returns>
+        public Task<IEnumerable<Participant>> RandomizeParticipantsAsync(string tournament);
+        
         /// <summary>
         /// Randomizes a tournament's seeds if it has not yet started.
         /// </summary>
