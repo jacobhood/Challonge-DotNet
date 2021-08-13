@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Getting started </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Getting started ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="guides_gettingStarted">
+<h1 id="getting-started">Getting started</h1>
+
+<p>Once you installed the package (see <a class="xref" href="../index.html">homepage</a>), you wil need to retrieve
+your Challonge! API key, which you can find <a href="https://challonge.com/settings/developer">here</a></p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>This key allows direct interaction with the tournaments your account has access to.
+Do not share it with anyone else and protect it like your password.</p>
+</div>
+<p>Every API interaction happens through the <code>ChallongeClient</code>. You can either set it up normally, or
+you can use dependency injection.</p>
+<div class="tabGroup" id="tabgroup_bHGHmlrG6S">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_console" role="tab" aria-controls="tabpanel_bHGHmlrG6S_console" data-tab="console" tabindex="0" aria-selected="true">Console Application</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_bHGHmlrG6S_di" role="tab" aria-controls="tabpanel_bHGHmlrG6S_di" data-tab="di" tabindex="-1">ASP.NET Core Web Application</a>
+</li>
+</ul>
+<section id="tabpanel_bHGHmlrG6S_console" role="tabpanel" data-tab="console">
+
+<p>Add these <code>using</code> directives:</p>
+<pre><code class="lang-c#">using System.Net.Http;
+using System.Collections.Generic;
+using Challonge.Api;
+using Challonge.Objects;
+</code></pre>
+<p>Create the client and use its methods:</p>
+<pre><code class="lang-c#">class Program
+{
+    private static readonly HttpClient _httpClient = new();
+    private static readonly ChallongeCredentials _credentials = new(&quot;username&quot;, &quot;apiKey&quot;);
+    private static readonly ChallongeClient _client = new(_httpClient, _credentials);
+	
+    static void Main(string[] args)
+    {
+        IEnumerable&lt;Tournament&gt; tournaments = _client.GetTournamentsAsync().Result;
+    }
+}
+</code></pre>
+</section>
+<section id="tabpanel_bHGHmlrG6S_di" role="tabpanel" data-tab="di" aria-hidden="true" hidden="hidden">
+
+<p>Challonge-DotNet supports dependency injection using the built-in dependency injection framework.</p>
+<p>In <code>Startup.cs</code></p>
+<pre><code class="lang-c#">using Challonge.Extensions.DependencyInjection;
+</code></pre>
+<pre><code class="lang-c#">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddChallonge(&quot;username&quot;, &quot;apiKey&quot;);
+}
+</code></pre>
+<p>Add the appropriate <code>using</code> directives to your controller file:</p>
+<pre><code class="lang-c#">using Challonge.Api;
+using Challonge.Objects;
+</code></pre>
+<p>Inject the client:</p>
+<pre><code class="lang-c#">public class HomeController : Controller
+{
+    private readonly IChallongeClient _client;
+
+    public HomeController(IChallongeClient client)
+    {
+        _client = client;
+    }
+}
+</code></pre>
+<p>You can also inject <code>IChallongeCredentials</code> to access the username and api key used by the client.</p>
+</section>
+</div>
+<h1 id="example">Example</h1>
+<p>Assume we have an already-configured <code>ChallongeClient</code> <code>_client</code> as a field in our class.</p>
+<pre><code class="lang-c#">public async Task&lt;Tournament&gt; Example()
+{
+    TournamentInfo info = new()
+    {
+        AcceptAttachments = true,
+        TournamentType = TournamentType.DoubleElimination,
+        Name = &quot;SSBM Weekly #46&quot;
+    };
+    Tournament tournament = await _client.CreateTournamentAsync(info);
+
+    for (int i = 1; i &lt;= 5; i++)
+    {
+        ParticipantInfo pInfo = new()
+        {
+            Name = $&quot;player{i}&quot;
+        };
+        await _client.CreateParticipantAsync(tournament, pInfo);
+    }
+
+    IEnumerable&lt;Participant&gt; participants = await _client.RandomizeParticipantsAsync(tournament);
+
+    foreach (Participant p in participants)
+    {
+        ParticipantInfo pInfo = new()
+        {
+            Misc = p.Seed % 2 == 0 ? &quot;Even seed&quot; : &quot;Odd seed&quot;;
+        };
+        await _client.UpdateParticipantAsync(p, pInfo);
+    }
+
+    tournament = await _client.GetTournamentByIdAsync(tournament.Id);
+    return tournament;
+}
+</code></pre>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Remember that your api key is very sensitive. In the previous example, we copy-pasted the
+api key and the Challonge! username in the code, which is NOT secure, especially if you
+plan on distributing the application in any shape or form.</p>
+<p>We recommend alternative storage such as environment variables, an external configuration
+file, or a secrets manager for safe-handling of secrets.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ErwanTLG/Challonge-DotNet/blob/master/docfx/guides/gettingStarted.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
