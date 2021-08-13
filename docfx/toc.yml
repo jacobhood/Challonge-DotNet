@@ -1,0 +1,5 @@
+﻿- name: Guides
+  href: guides/
+  homepage: guides/gettingStarted.md
+- name: API Documentation
+  href: api/
