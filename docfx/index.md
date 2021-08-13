@@ -2,6 +2,9 @@
 uid: homepage
 ---
 
+[![LastCommit](https://img.shields.io/github/last-commit/jacobhood/Challonge-DotNet?style=flat&logo=github)](https://github.com/jacobhood/Challonge-DotNet)
+[![Nuget](https://img.shields.io/nuget/v/Challonge-DotNet?style=flat&logo=nuget)](https://www.nuget.org/packages/Challonge-DotNet)
+
 # Challonge-DotNet
 ***
 Challonge-DotNet is a C# implementation of the CHALLONGE! API built on .NET that exposes asynchronous
