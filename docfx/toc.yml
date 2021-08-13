@@ -3,3 +3,7 @@
   homepage: guides/gettingStarted.md
 - name: API Documentation
   href: api/
+- name: Changelog
+  href: changelog/
+  homepage: changelog/changelog.md
+  
