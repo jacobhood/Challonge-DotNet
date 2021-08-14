@@ -1,0 +1,72 @@
+﻿{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**.csproj"
+          ],
+          "src": "../Challonge/"
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "guides/**.md",
+          "guides/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      },
+      { 
+        "files": [
+          "changelog/**.md",
+          "changelog/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**"
+        ]
+      }
+    ],
+    "dest": "../docs",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

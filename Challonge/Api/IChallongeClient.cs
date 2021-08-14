@@ -384,7 +384,7 @@ namespace Challonge.Api
         /// Updates a match.
         /// </summary>
         /// <param name="match">The match to update.</param>
-        /// <param name="matchInfo">The new details of the match.param>
+        /// <param name="matchInfo">The new details of the match.</param>
         /// <param name="ignoreNulls">Indicates whether null-valued properties of matchInfo should be sent to Challonge.</param>
         /// <returns>A task representing the updated match.</returns>
         public Task<Match> UpdateMatchAsync(Match match, MatchInfo matchInfo, bool ignoreNulls = true);
