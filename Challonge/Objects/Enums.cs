@@ -18,6 +18,8 @@ namespace Challonge.Objects
         CheckingIn,
         [EnumMember(Value = "checked_in")]
         CheckedIn,
+        [EnumMember(Value = "accepting_predictions")]
+        AcceptingPredictions,
         [EnumMember(Value = "awaiting_review")]
         AwaitingReview,
         [EnumMember(Value = "complete")]
@@ -78,5 +80,15 @@ namespace Challonge.Objects
         Open,
         [EnumMember(Value = "complete")]
         Complete
+    }
+
+    public enum TieBreak
+    {
+        [EnumMember(Value = "match wins vs tied")]
+        MatchWinsVsTied,
+        [EnumMember(Value = "game wins")]
+        GameWins,
+        [EnumMember(Value = "points scored")]
+        PointsScored
     }
 }

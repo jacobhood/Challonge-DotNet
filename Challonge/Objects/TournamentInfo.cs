@@ -93,6 +93,9 @@ namespace Challonge.Objects
         [JsonProperty("check_in_duration")]
         public int? CheckInDuration { get; set; }
 
+        [JsonProperty("prediction_method")]
+        public PredictionMethod PredictionMethod { get; set; }
+
         [JsonProperty("grand_finals_modifier")]
         [JsonConverter(typeof(StringEnumConverter))]
         public GrandFinalsModifier? GrandFinalsModifier { get; set; }
@@ -101,13 +104,9 @@ namespace Challonge.Objects
         {
             PtsForMatchWin = 1;
             PtsForMatchTie = 0.5;
-            PtsForGameWin = 0;
-            PtsForGameTie = 0;
             PtsForBye = 1;
             RRPtsForMatchWin = 1;
             RRPtsForMatchTie = 0.5;
-            RRPtsForGameWin = 0;
-            RRPtsForGameTie = 0;
         }
 
         internal override Dictionary<string, object> ToDictionary(bool ignoreNulls)

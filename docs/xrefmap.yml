@@ -217,6 +217,12 @@ references:
   commentId: M:Challonge.Api.ChallongeClient.GetMatchAsync(Challonge.Objects.Tournament,System.Int64)
   fullName: Challonge.Api.ChallongeClient.GetMatchAsync(Challonge.Objects.Tournament, System.Int64)
   nameWithType: ChallongeClient.GetMatchAsync(Tournament, Int64)
+- uid: Challonge.Api.ChallongeClient.GetMatchAsync(System.String,System.Int64)
+  name: GetMatchAsync(String, Int64)
+  href: api/Challonge.Api.ChallongeClient.html#Challonge_Api_ChallongeClient_GetMatchAsync_System_String_System_Int64_
+  commentId: M:Challonge.Api.ChallongeClient.GetMatchAsync(System.String,System.Int64)
+  fullName: Challonge.Api.ChallongeClient.GetMatchAsync(System.String, System.Int64)
+  nameWithType: ChallongeClient.GetMatchAsync(String, Int64)
 - uid: Challonge.Api.ChallongeClient.GetMatchAsync*
   name: GetMatchAsync
   href: api/Challonge.Api.ChallongeClient.html#Challonge_Api_ChallongeClient_GetMatchAsync_
@@ -256,6 +262,12 @@ references:
   commentId: M:Challonge.Api.ChallongeClient.GetMatchesAsync(Challonge.Objects.Tournament,Challonge.Objects.MatchState,Challonge.Objects.Participant)
   fullName: Challonge.Api.ChallongeClient.GetMatchesAsync(Challonge.Objects.Tournament, Challonge.Objects.MatchState, Challonge.Objects.Participant)
   nameWithType: ChallongeClient.GetMatchesAsync(Tournament, MatchState, Participant)
+- uid: Challonge.Api.ChallongeClient.GetMatchesAsync(System.String,Challonge.Objects.MatchState,Challonge.Objects.Participant)
+  name: GetMatchesAsync(String, MatchState, Participant)
+  href: api/Challonge.Api.ChallongeClient.html#Challonge_Api_ChallongeClient_GetMatchesAsync_System_String_Challonge_Objects_MatchState_Challonge_Objects_Participant_
+  commentId: M:Challonge.Api.ChallongeClient.GetMatchesAsync(System.String,Challonge.Objects.MatchState,Challonge.Objects.Participant)
+  fullName: Challonge.Api.ChallongeClient.GetMatchesAsync(System.String, Challonge.Objects.MatchState, Challonge.Objects.Participant)
+  nameWithType: ChallongeClient.GetMatchesAsync(String, MatchState, Participant)
 - uid: Challonge.Api.ChallongeClient.GetMatchesAsync*
   name: GetMatchesAsync
   href: api/Challonge.Api.ChallongeClient.html#Challonge_Api_ChallongeClient_GetMatchesAsync_
@@ -2737,6 +2749,30 @@ references:
   isSpec: "True"
   fullName: Challonge.Objects.Score.PlayerTwoScore
   nameWithType: Score.PlayerTwoScore
+- uid: Challonge.Objects.TieBreak
+  name: TieBreak
+  href: api/Challonge.Objects.TieBreak.html
+  commentId: T:Challonge.Objects.TieBreak
+  fullName: Challonge.Objects.TieBreak
+  nameWithType: TieBreak
+- uid: Challonge.Objects.TieBreak.GameWins
+  name: GameWins
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_GameWins
+  commentId: F:Challonge.Objects.TieBreak.GameWins
+  fullName: Challonge.Objects.TieBreak.GameWins
+  nameWithType: TieBreak.GameWins
+- uid: Challonge.Objects.TieBreak.MatchWinsVsTied
+  name: MatchWinsVsTied
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_MatchWinsVsTied
+  commentId: F:Challonge.Objects.TieBreak.MatchWinsVsTied
+  fullName: Challonge.Objects.TieBreak.MatchWinsVsTied
+  nameWithType: TieBreak.MatchWinsVsTied
+- uid: Challonge.Objects.TieBreak.PointsScored
+  name: PointsScored
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_PointsScored
+  commentId: F:Challonge.Objects.TieBreak.PointsScored
+  fullName: Challonge.Objects.TieBreak.PointsScored
+  nameWithType: TieBreak.PointsScored
 - uid: Challonge.Objects.Tournament
   name: Tournament
   href: api/Challonge.Objects.Tournament.html
@@ -4003,6 +4039,19 @@ references:
   isSpec: "True"
   fullName: Challonge.Objects.TournamentInfo.OpenSignup
   nameWithType: TournamentInfo.OpenSignup
+- uid: Challonge.Objects.TournamentInfo.PredictionMethod
+  name: PredictionMethod
+  href: api/Challonge.Objects.TournamentInfo.html#Challonge_Objects_TournamentInfo_PredictionMethod
+  commentId: P:Challonge.Objects.TournamentInfo.PredictionMethod
+  fullName: Challonge.Objects.TournamentInfo.PredictionMethod
+  nameWithType: TournamentInfo.PredictionMethod
+- uid: Challonge.Objects.TournamentInfo.PredictionMethod*
+  name: PredictionMethod
+  href: api/Challonge.Objects.TournamentInfo.html#Challonge_Objects_TournamentInfo_PredictionMethod_
+  commentId: Overload:Challonge.Objects.TournamentInfo.PredictionMethod
+  isSpec: "True"
+  fullName: Challonge.Objects.TournamentInfo.PredictionMethod
+  nameWithType: TournamentInfo.PredictionMethod
 - uid: Challonge.Objects.TournamentInfo.Private
   name: Private
   href: api/Challonge.Objects.TournamentInfo.html#Challonge_Objects_TournamentInfo_Private
@@ -4256,6 +4305,12 @@ references:
   commentId: T:Challonge.Objects.TournamentState
   fullName: Challonge.Objects.TournamentState
   nameWithType: TournamentState
+- uid: Challonge.Objects.TournamentState.AcceptingPredictions
+  name: AcceptingPredictions
+  href: api/Challonge.Objects.TournamentState.html#Challonge_Objects_TournamentState_AcceptingPredictions
+  commentId: F:Challonge.Objects.TournamentState.AcceptingPredictions
+  fullName: Challonge.Objects.TournamentState.AcceptingPredictions
+  nameWithType: TournamentState.AcceptingPredictions
 - uid: Challonge.Objects.TournamentState.All
   name: All
   href: api/Challonge.Objects.TournamentState.html#Challonge_Objects_TournamentState_All

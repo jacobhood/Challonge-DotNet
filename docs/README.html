@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Challonge-DotNet </title>
+    <title>Challonge-DotNet documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Challonge-DotNet ">
+    <meta name="title" content="Challonge-DotNet documentation ">
     <meta name="generator" content="docfx 2.58.0.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -59,44 +59,25 @@
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="homepage">
-<h1 id="challonge-dotnet">Challonge-DotNet</h1>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="challonge-dotnet-documentation">Challonge-DotNet documentation</h1>
 
-<p><a href="https://github.com/jacobhood/Challonge-DotNet"><img src="https://img.shields.io/github/last-commit/jacobhood/Challonge-DotNet?style=flat&amp;logo=github" alt="LastCommit"></a>
-<a href="https://www.nuget.org/packages/Challonge-DotNet"><img src="https://img.shields.io/nuget/v/Challonge-DotNet?style=flat&amp;logo=nuget" alt="Nuget"></a></p>
 <hr>
-<p>Challonge-DotNet is a C# implementation of the CHALLONGE! API built on .NET that exposes asynchronous
-methods for interacting with the API.</p>
-<h2 id="requirements">Requirements</h2>
+<p>The documentation is built using the <a href="https://dotnet.github.io/docfx/">docfx</a> CLI.
+It automatically parses the xml documentation of the source code.</p>
+<h2 id="extending-the-documentation">Extending the documentation</h2>
 <hr>
-<ul>
-<li>.NET 5.0</li>
-<li>Internet connection</li>
-</ul>
-<h2 id="installation">Installation</h2>
+<p>You can extend the documentation by writing markdown files, like described
+<a href="https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html?tabs=tabid-1%2Ctabid-a">here</a>.</p>
+<p><strong>IMPORTANT: The parsing engine used for this project is <a href="https://github.com/lunet-io/markdig">markdig</a>,
+the default setting for docfx. It should not be changed.</strong></p>
+<h2 id="building-the-static-html-documentation">Building the static html documentation</h2>
 <hr>
-<p>Recommended methods:</p>
-<ul>
-<li>Package manager UI</li>
-<li>Package manager Console:<br>
-<code>PM&gt; Install-Package Challonge-DotNet -Version 1.0.0</code></li>
-<li>.NET CLI<br>
-<code>&gt; dotnet add package Challonge-DotNet --version 1.0.0</code></li>
-</ul>
-<h2 id="usage">Usage</h2>
-<hr>
-<p>See the <a class="xref" href="guides/gettingStarted.html">guides section</a> to see some examples on how to use the package.</p>
-<hr>
-<div class="NOTE">
-<h5>Note</h5>
-<p>The following observations come from experimenting and debugging, so they may not be totally accurate.</p>
-<ul>
-<li>Match attachment files must be images.</li>
-<li>The <code>Participant</code> returned from <code>UndoCheckInParticipantAsync</code> has the correct checked-in status,
-but this is not the case for the <code>Participant</code> returned from <code>GetParticipantAsync</code> after undoing their check-in.
-This behavior has been documented elsewhere, so there's a chance it's a Challonge-side issue.</li>
-</ul>
-</div>
+<p>Follow the <a href="https://dotnet.github.io/docfx/tutorial/docfx_getting_started.html#2-use-docfx-as-a-command-line-tool">installation guide for docfx CLI</a>.
+Once installed, from the project root, run</p>
+<pre><code>&gt; docfx docfx/docfx.json
+</code></pre>
+<p>This will build the documentation and generate the static html pages in the <code>docs</code> folder.</p>
 </article>
           </div>
           
@@ -105,7 +86,7 @@ This behavior has been documented elsewhere, so there's a chance it's a Challong
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jacobhood/Challonge-DotNet/blob/master/docfx/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jacobhood/Challonge-DotNet/blob/master/docfx/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

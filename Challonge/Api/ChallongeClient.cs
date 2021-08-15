@@ -92,10 +92,10 @@ namespace Challonge.Api
             return wrapper.Item;
         }
 
-        public async Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo, 
+        public Task<Tournament> UpdateTournamentAsync(Tournament tournament, TournamentInfo tournamentInfo, 
             bool ignoreNulls = true)
         {
-            return await UpdateTournamentAsync(tournament.Id.ToString(), tournamentInfo, ignoreNulls);
+            return UpdateTournamentAsync(tournament.Id.ToString(), tournamentInfo, ignoreNulls);
         }
 
         public async Task DeleteTournamentAsync(string tournament)
@@ -104,9 +104,9 @@ namespace Challonge.Api
                 $"tournaments/{tournament}.json", HttpMethod.Delete);
         }
 
-        public async Task DeleteTournamentAsync(Tournament tournament)
+        public Task DeleteTournamentAsync(Tournament tournament)
         {
-            await DeleteTournamentAsync(tournament.Id.ToString());
+            return DeleteTournamentAsync(tournament.Id.ToString());
         }
 
         public async Task<Tournament> ProcessTournamentCheckInsAsync(string tournament)
@@ -117,9 +117,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
 
-        public async Task<Tournament> ProcessTournamentCheckInsAsync(Tournament tournament)
+        public Task<Tournament> ProcessTournamentCheckInsAsync(Tournament tournament)
         {
-            return await ProcessTournamentCheckInsAsync(tournament.Id.ToString());
+            return ProcessTournamentCheckInsAsync(tournament.Id.ToString());
         }
 
         public async Task<Tournament> AbortTournamentCheckInAsync(string tournament)
@@ -130,9 +130,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Tournament> AbortTournamentCheckInAsync(Tournament tournament)
+        public Task<Tournament> AbortTournamentCheckInAsync(Tournament tournament)
         {
-            return await AbortTournamentCheckInAsync(tournament.Id.ToString());
+            return AbortTournamentCheckInAsync(tournament.Id.ToString());
         }
 
         public async Task<Tournament> StartTournamentAsync(string tournament)
@@ -143,9 +143,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Tournament> StartTournamentAsync(Tournament tournament)
+        public Task<Tournament> StartTournamentAsync(Tournament tournament)
         {
-            return await StartTournamentAsync(tournament.Id.ToString());
+            return StartTournamentAsync(tournament.Id.ToString());
         }
 
         public async Task<Tournament> FinalizeTournamentAsync(string tournament)
@@ -156,9 +156,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Tournament> FinalizeTournamentAsync(Tournament tournament)
+        public Task<Tournament> FinalizeTournamentAsync(Tournament tournament)
         {
-            return await FinalizeTournamentAsync(tournament.Id.ToString());
+            return FinalizeTournamentAsync(tournament.Id.ToString());
         }
 
         public async Task<Tournament> ResetTournamentAsync(string tournament)
@@ -169,9 +169,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Tournament> ResetTournamentAsync(Tournament tournament)
+        public Task<Tournament> ResetTournamentAsync(Tournament tournament)
         {
-            return await ResetTournamentAsync(tournament.Id.ToString());
+            return ResetTournamentAsync(tournament.Id.ToString());
         }
 
         public async Task<Tournament> OpenTournamentForPredictionsAsync(string tournament)
@@ -182,9 +182,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Tournament> OpenTournamentForPredictionsAsync(Tournament tournament)
+        public Task<Tournament> OpenTournamentForPredictionsAsync(Tournament tournament)
         {
-            return await OpenTournamentForPredictionsAsync(tournament.Id.ToString());
+            return OpenTournamentForPredictionsAsync(tournament.Id.ToString());
         }
 
         public async Task<IEnumerable<Participant>> GetParticipantsAsync(string tournament)
@@ -195,9 +195,9 @@ namespace Challonge.Api
             return wrappers.Select(w => w.Item);
         }
         
-        public async Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament)
+        public Task<IEnumerable<Participant>> GetParticipantsAsync(Tournament tournament)
         {
-            return await GetParticipantsAsync(tournament.Id.ToString());
+            return GetParticipantsAsync(tournament.Id.ToString());
         }
 
         public async Task<Participant> CreateParticipantAsync(string tournament, ParticipantInfo participantInfo, 
@@ -210,10 +210,10 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo, 
+        public Task<Participant> CreateParticipantAsync(Tournament tournament, ParticipantInfo participantInfo, 
             bool ignoreNulls = true)
         {
-            return await CreateParticipantAsync(tournament.Id.ToString(), participantInfo, ignoreNulls);
+            return CreateParticipantAsync(tournament.Id.ToString(), participantInfo, ignoreNulls);
         }
 
         public async Task<IEnumerable<Participant>> CreateParticipantsAsync(string tournament,
@@ -245,10 +245,10 @@ namespace Challonge.Api
             return wrappers.Select(w => w.Item);
         }
         
-        public async Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament,
+        public Task<IEnumerable<Participant>> CreateParticipantsAsync(Tournament tournament,
             IEnumerable<ParticipantInfo> participantInfos)
         {
-            return await CreateParticipantsAsync(tournament.Id.ToString(), participantInfos);
+            return CreateParticipantsAsync(tournament.Id.ToString(), participantInfos);
         }
 
         public async Task<Participant> GetParticipantAsync(string tournament, long participantId)
@@ -259,9 +259,9 @@ namespace Challonge.Api
             return wrapper.Item;
         }
         
-        public async Task<Participant> GetParticipantAsync(Tournament tournament, long participantId)
+        public Task<Participant> GetParticipantAsync(Tournament tournament, long participantId)
         {
-            return await GetParticipantAsync(tournament.Id.ToString(), participantId);
+            return GetParticipantAsync(tournament.Id.ToString(), participantId);
         }
 
         public async Task<Participant> UpdateParticipantAsync(Participant participant, ParticipantInfo participantInfo, 
@@ -306,9 +306,9 @@ namespace Challonge.Api
                 HttpMethod.Delete);
         }
         
-        public async Task ClearParticipantsAsync(Tournament tournament)
+        public Task ClearParticipantsAsync(Tournament tournament)
         {
-            await ClearParticipantsAsync(tournament.Id.ToString());
+            return ClearParticipantsAsync(tournament.Id.ToString());
         }
 
         public async Task<IEnumerable<Participant>> RandomizeParticipantsAsync(string tournament)
@@ -320,12 +320,12 @@ namespace Challonge.Api
             return wrappers.Select(w => w.Item);
         }
         
-        public async Task<IEnumerable<Participant>> RandomizeParticipantsAsync(Tournament tournament)
+        public Task<IEnumerable<Participant>> RandomizeParticipantsAsync(Tournament tournament)
         {
-            return await RandomizeParticipantsAsync(tournament.Id.ToString());
+            return RandomizeParticipantsAsync(tournament.Id.ToString());
         }
 
-        public async Task<IEnumerable<Match>> GetMatchesAsync(Tournament tournament, 
+        public async Task<IEnumerable<Match>> GetMatchesAsync(string tournament, 
             MatchState matchState = MatchState.All, Participant participant = null)
         {
             Dictionary<string, object> parameters = new()
@@ -335,17 +335,28 @@ namespace Challonge.Api
             };
 
             IEnumerable<MatchWrapper> wrappers = await SendRequestAsync<IEnumerable<MatchWrapper>>(
-                $"tournaments/{tournament.Id}/matches.json", HttpMethod.Get, parameters);
+                $"tournaments/{tournament}/matches.json", HttpMethod.Get, parameters);
 
             return wrappers.Select(w => w.Item);
         }
 
-        public async Task<Match> GetMatchAsync(Tournament tournament, long matchId)
+        public Task<IEnumerable<Match>> GetMatchesAsync(Tournament tournament,
+            MatchState matchState = MatchState.All, Participant participant = null)
+        {
+            return GetMatchesAsync(tournament.Id.ToString(), matchState, participant);
+        }
+
+        public async Task<Match> GetMatchAsync(string tournament, long matchId)
         {
             MatchWrapper wrapper = await SendRequestAsync<MatchWrapper>(
-                $"tournaments/{tournament.Id}/matches/{matchId}.json", HttpMethod.Get);
+                $"tournaments/{tournament}/matches/{matchId}.json", HttpMethod.Get);
 
             return wrapper.Item;
+        }
+
+        public Task<Match> GetMatchAsync(Tournament tournament, long matchId)
+        {
+            return GetMatchAsync(tournament.Id.ToString(), matchId);
         }
 
         public async Task<Match> UpdateMatchAsync(Match match, MatchInfo matchInfo, bool ignoreNulls = true)

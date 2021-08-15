@@ -23,13 +23,14 @@ Recommended methods:
 - .NET CLI\
 ```> dotnet add package Challonge-DotNet --version 1.0.0```
 
-## Getting started
+## Usage
 ***
-See the [guides section](xref:guides_gettingStarted) to see some examples on how to use the package
+See the [guides section](xref:guides_gettingStarted) to see some examples on how to use the package.
 
 *** 
 > [!NOTE]
 > The following observations come from experimenting and debugging, so they may not be totally accurate.
 > - Match attachment files must be images.
 > - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status,
-> - but this is not the case for the `Participant` returned from GetParticipantAsync after undoing their check-in. This behavior has been documented elsewhere, so there's a chance it's a Challonge-side issue.
+> but this is not the case for the `Participant` returned from `GetParticipantAsync` after undoing their check-in. 
+> This behavior has been documented elsewhere, so there's a chance it's a Challonge-side issue.

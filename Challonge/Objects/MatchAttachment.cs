@@ -36,7 +36,7 @@ namespace Challonge.Objects
         public string AssetContentType { get; private set; }
 
         [JsonProperty("asset_file_size")]
-        public long AssetFileSize { get; private set; }
+        public long? AssetFileSize { get; private set; }
 
         [JsonProperty("asset_url")]
         public string AssetUrl { get; private set; }

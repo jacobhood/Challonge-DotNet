@@ -1,15 +1,27 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/erwan/RiderProjects/Challonge-DotNet/docfx",
+  "source_base_path": "D:/personalCodeStuff/Challonge/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "W4Whh3Z7kPhlh5N1B3CezpD3dxGwVnqshkzTI3v4XMA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Challonge.Api.ChallongeClient.yml",
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Api.ChallongeClient.html",
-          "hash": "AfgfT2lNkfMmbfNhL81Hen84wDvViDRmJRc+F5O5uoU="
+          "hash": "3d7n+Du2D+IorSs0+/I0E0uJSwZquLT1s+iHckABt2Q="
         }
       },
       "is_incremental": true,
@@ -21,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Api.ChallongeCredentials.html",
-          "hash": "gCranojNzLirLIxOA0wANGyfjBpLmKVII6u1S4h4JZ4="
+          "hash": "z33j+3f7z34SUw/gyYrtnKr/GU5mqQehi8qgp8AqszI="
         }
       },
       "is_incremental": true,
@@ -33,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Api.IChallongeClient.html",
-          "hash": "c29szmZN27p5yYZTeizDjExDKX4Vk+hh/UQQwP3qiKo="
+          "hash": "9Tw89cpqN78Rf+5UWya248zHOC2H/rCyhLglPVP60PE="
         }
       },
       "is_incremental": true,
@@ -45,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Api.IChallongeCredentials.html",
-          "hash": "Ky74GAg7jVxzBDBq6VJin3mBkvSXYsEedDtwwDM2t3I="
+          "hash": "niBQV9Y6xIj379kdu9t13TF2kZNAyVpzj9q0oPBx+Es="
         }
       },
       "is_incremental": true,
@@ -69,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Exceptions.ChallongeException.html",
-          "hash": "RYFspxb/hVegdb+QCpPeMi+Qe4tCxV9tKVstRpdWAV8="
+          "hash": "rXFV15JqxqmKLFA6kO3Vm2i7W+GWjkZ9XturIehHilY="
         }
       },
       "is_incremental": true,
@@ -81,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Exceptions.html",
-          "hash": "1rCome7LQ09hPGUIXsH0DPw3QgWu4VTVZ5KIYbIFm4Y="
+          "hash": "ChZo/y3TyWV9wM9xLn9/0VdzJNfVvWCInkrDwk7eG2A="
         }
       },
       "is_incremental": true,
@@ -93,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Extensions.DependencyInjection.ChallongeServiceCollectionExtensions.html",
-          "hash": "T/+3tqXUfGLmQqEVW8NXFC4NQAzU0x+S0MmSQYQJTNw="
+          "hash": "WIk49sf1AEWR77+IVACdnSh3ODZ8gYGkpskT8nT03NY="
         }
       },
       "is_incremental": true,
@@ -105,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Extensions.DependencyInjection.html",
-          "hash": "ocUai8ljo8YJvS22aKjW+Z5bSPjQQDPfEvPKl8Ifkak="
+          "hash": "1rs9WFJwtesZLaMFKT+WQRrQF1hUNsZV2liAeca2eto="
         }
       },
       "is_incremental": true,
@@ -117,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.ChallongeObject.html",
-          "hash": "9U8sSHoWkp5g27+qeFnoFtAkSU4xZg1Tcpsg9e0Yaos="
+          "hash": "fy5TCEL5BEbC3g9dt//KyqiT1y0/V7vbeqL/0NKtNf8="
         }
       },
       "is_incremental": true,
@@ -129,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.ChallongeObjectInfo.html",
-          "hash": "Y3zXkydKXo/n/P6XuRsyZbilfNvvvGaex0nfCCRckuY="
+          "hash": "c0iFUKP+AZ/wzPFDenh5EsZohx76qDAOy30oc/8+v9k="
         }
       },
       "is_incremental": true,
@@ -141,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.GrandFinalsModifier.html",
-          "hash": "22k+4Ht+7lYDMABzhvyc974cOGpcRs/OVDliGfacrbc="
+          "hash": "yfp9XNF2QDmjraCdWZIrVFWYHjpjWK1oaS9Szjq7A2s="
         }
       },
       "is_incremental": true,
@@ -153,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.Match.html",
-          "hash": "5Qq20eGVVqsy901UnfAPYGaDYtF6YBvDoyDqfP1aSdk="
+          "hash": "7KKcslD+wEEip6L92fajmG4hEQJKKmr41aKLUAYT0x4="
         }
       },
       "is_incremental": true,
@@ -165,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.MatchAttachment.html",
-          "hash": "/KZmQ0moH/wQ0xwHlvMAklTTHQm3er9F24WelDL1J1I="
+          "hash": "M6JaxXPuKKguF6XrelDFdyUQhRXXxFZeGXParMcJzA4="
         }
       },
       "is_incremental": true,
@@ -177,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.MatchAttachmentAsset.html",
-          "hash": "ZvSM5MUOAJyOm7ROpjTjIsAGvZTSbhnbrur9+7G8fnc="
+          "hash": "ew0GbqRI16V9Ra2j1Ey/U0WTnpZeyyNg819qsFsghSI="
         }
       },
       "is_incremental": true,
@@ -189,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.MatchAttachmentInfo.html",
-          "hash": "9C9dy1Tr4NdR4DOdJ5JicGd3LsRNKLwIZn68RNEaXyI="
+          "hash": "cPRhUPb0NFd2kKh5+wp3YJMiW1lLznXRsxDe3GMoSYo="
         }
       },
       "is_incremental": true,
@@ -201,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.MatchInfo.html",
-          "hash": "07mfbndU1DW2nXgoPyP+nXARLSmQJRUN5SLxQLBhYto="
+          "hash": "K81AX9DyuOwds0rl5JtXvmC+Wf1fDI0aNzqhnIFc1/g="
         }
       },
       "is_incremental": true,
@@ -213,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.MatchState.html",
-          "hash": "JzB0zFZohPlLkOWms9JkwuYVqQdIbC96Arhfgq+P9OM="
+          "hash": "eBmIgRSiDRf5NDkEHqfz7lkGJ0u8/P69uxBSmCApyp0="
         }
       },
       "is_incremental": true,
@@ -225,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.Participant.html",
-          "hash": "kjnMNQdLlQg85Qk0an/PkAYllymFncty6klwQaLlSyk="
+          "hash": "9nxYY5WbjOJt1jgkXKjTsOQa7fYikBj4NQQkQIceMwo="
         }
       },
       "is_incremental": true,
@@ -237,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.ParticipantInfo.html",
-          "hash": "rj2MIWlCYjijOeo8RJLwcmlEQxyOFLiszMZrQv64/xw="
+          "hash": "rWN6jpz4lhkBvL1E1XO96RXOOYNe1QKX27Ofxd4n+z0="
         }
       },
       "is_incremental": true,
@@ -249,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.PredictionMethod.html",
-          "hash": "h+KV+c28I79qqCzYTsMHdmxKyMfVwaoExwao1vaxk30="
+          "hash": "xGA5jge26lJxarzHCWPFb/aCeOZXi8eempgxQlH2gJA="
         }
       },
       "is_incremental": true,
@@ -261,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.RankingMethod.html",
-          "hash": "yD4Iri8L8ykiLmxHSQth0oVkF9gIWKiaHq2zVYee1Sc="
+          "hash": "U3RDo/VC91guxeRyrY2qVESgs2sou/112f0LUEjE+n4="
         }
       },
       "is_incremental": true,
@@ -273,7 +285,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.Score.html",
-          "hash": "LQhajTnnjf4Z9JO3psiqfHOJkNaYNy3EEhTiAUxA+QA="
+          "hash": "etp7GXNjEUWl4ijUz2jBkwi7ZgPIWLvL/aVS7AwNd+Q="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Challonge.Objects.TieBreak.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Challonge.Objects.TieBreak.html",
+          "hash": "5z+nArFg6LfWTBLruXsYcTY0MNiqjdNJQrY4dmvAqNc="
         }
       },
       "is_incremental": true,
@@ -285,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.Tournament.NonEliminationData.html",
-          "hash": "Swg0g7mNJHU8ZN67B3BYT8Q1d2yjoFE8QO+z9LG5vxg="
+          "hash": "gXc6FMRYokCUy/QGHZ+Iwsg8FtPSH+aAoVxA4RiC/PM="
         }
       },
       "is_incremental": true,
@@ -297,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.Tournament.html",
-          "hash": "0T1nS2TtqZfAHSmQhglHQK8FY0ChfoVJUrR2B5RDoYk="
+          "hash": "K4dSDGpJQFfBnvcXGrh0/u2XYleFYYcn/yvyAU5j9YM="
         }
       },
       "is_incremental": true,
@@ -309,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.TournamentInfo.html",
-          "hash": "lkVPxaCwqVDMrWlXmYspdwPaf++B5am9lsE6dws7Dbs="
+          "hash": "pp0XV3z1Cwlw+MTu8+bdSsKIVbM4k5svGV2zHMnU4d0="
         }
       },
       "is_incremental": true,
@@ -321,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.TournamentState.html",
-          "hash": "fiXieba/hbUX6bq1f35EWOXZss7N6EVkG3zNtIXdp5Q="
+          "hash": "LuxbLyXzwyEE4KLnuFaoFz3iwksBRPonfkpsTUzQvYg="
         }
       },
       "is_incremental": true,
@@ -333,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.TournamentType.html",
-          "hash": "/kHU664tCxYQowHuFT+nsVEreHNaB1BXgqzXoRZ49r0="
+          "hash": "+cuOH+SkxdHcEut0Vx9Wr2EkASaQfe7gI06p6ERJVDw="
         }
       },
       "is_incremental": true,
@@ -345,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Challonge.Objects.html",
-          "hash": "m8Sxsu6/n8+GRaXCsMtMVFA42BEzRcofMzpJBQImTRU="
+          "hash": "/NJqAOTXU6IucvS2e+imPL81axHTjhbsmfu/70Sm2tw="
         }
       },
       "is_incremental": true,
@@ -357,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "CTvGUs+tyMmsVqxagAaDGQFgfFNBHQEib+4sKckeqe0="
+          "hash": "/DZehJXulnvuOLFC24vq5k6uyqzvH5/9aWDtLiQk2FE="
         }
       },
       "is_incremental": true,
@@ -369,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "6ynr8Hek7hJ4y3Ly7TEFtr7GmzJlEXhXm8CB8d03HFQ="
+          "hash": "QEfY/Xc5MU+SRrNfuTv+o9YPNL7TQxfbOG1YoQAncg4="
         }
       },
       "is_incremental": false,
@@ -381,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "changelog/changelog.html",
-          "hash": "f5ZXDGLyMYJQJXOQTub00cVay0HuixoW4ZC0nwOc+Zg="
+          "hash": "HJnhgWezG5MmCMFUf77BFX3Qc8VxdlkLjKjDHPAsUE0="
         }
       },
       "is_incremental": true,
@@ -405,10 +429,10 @@
       "output": {
         ".html": {
           "relative_path": "guides/gettingStarted.html",
-          "hash": "x+Q1R3IMzkpJTXMNG592928ILbjOr9+qrIksyr30o4Y="
+          "hash": "kS3bL0cLZMYIt6DJhQ5IqgsfVc3deegLvvJYGj0xMOY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -429,10 +453,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "cu5dtz5eiJktugrQ6m0hk1iF/TwMqbCCYniDwPOpjd0="
+          "hash": "BadOQvkUwp0YSSIJggNRcOFyN8c97T6tqRQHqbsLAGU="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -460,14 +484,14 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 4,
-          "skipped_file_count": 3
+          "total_file_count": 5,
+          "skipped_file_count": 5
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 29,
-          "skipped_file_count": 29
+          "total_file_count": 30,
+          "skipped_file_count": 30
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

@@ -18,4 +18,4 @@ Once installed, from the project root, run
 ```
 > docfx docfx/docfx.json
 ```
-This will build the documentation and output the static html page inside the `docs` folder.
+This will build the documentation and generate the static html pages in the `docs` folder.

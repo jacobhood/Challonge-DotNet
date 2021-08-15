@@ -11,7 +11,7 @@ namespace Challonge.Api
     public interface IChallongeClient
     {
         /// <summary>
-        /// Retrieves all tournaments created with the account with the provided credentials that meet the specified criteria.
+        /// Retrieves the tournaments created by the account with the provided credentials, filtered per the parameters.
         /// </summary>
         /// <param name="state">The state of tournaments to retrieve.</param>
         /// <param name="type">The type of tournaments to retrieve.</param>

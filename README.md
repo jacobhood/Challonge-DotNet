@@ -45,7 +45,7 @@ class Program
     private static readonly ChallongeCredentials _credentials = new("username", "apiKey");
     private static readonly ChallongeClient _client = new(_httpClient, _credentials);
 	
-    static void Main(string[] args)
+    static void Main()
     {
         IEnumerable<Tournament> tournaments = _client.GetTournamentsAsync().Result;
     }
@@ -182,3 +182,5 @@ returned from `GetParticipantAsync` after undoing their check-in. This behavior 
 so there's a chance it's a Challonge-side issue.
 - Some of the enums are almost certainly incomplete. For example, I couldn't find an up-to-date list of tournament states, so I don't know if the 
 `TournamentState` enum contains all possible values, nor if it contains invalid values. I'll provide updates as discrepancies are discovered.
+- The `HasAttachment` property of `Match` does not appear to be set to true when a `MatchAttachment` is created; however, the `AttachmentCount` property
+is incremented.

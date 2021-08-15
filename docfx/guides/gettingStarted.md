@@ -3,15 +3,15 @@ uid: guides_gettingStarted
 ---
 
 # Getting started
-Once you installed the package (see [homepage](xref:homepage)), you wil need to retrieve 
-your Challonge! API key, which you can find [here](https://challonge.com/settings/developer)
+Once you've installed the package (see [homepage](xref:homepage)), you will need to retrieve 
+your Challonge! API key, which you can find [here](https://challonge.com/settings/developer).
 
 > [!CAUTION]
 > This key allows direct interaction with the tournaments your account has access to.
-> Do not share it with anyone else and protect it like your password.
+> Do not share it with anyone else and protect it like you would a password.
 
-Every API interaction happens through the `ChallongeClient`. You can either set it up normally, or
-you can use dependency injection.
+Every API interaction happens through the `ChallongeClient`. You can either instantiate it normally 
+or use dependency injection.
 
 # [Console Application](#tab/console)
 Add these `using` directives:
@@ -115,8 +115,8 @@ public async Task<Tournament> Example()
 
 > [!CAUTION]
 > Remember that your api key is very sensitive. In the previous example, we copy-pasted the
-> api key and the Challonge! username in the code, which is NOT secure, especially if you
+> api key and Challonge! username into the code, which is NOT secure, especially if you
 > plan on distributing the application in any shape or form. 
 > 
 > We recommend alternative storage such as environment variables, an external configuration 
-> file, or a secrets manager for safe-handling of secrets.
+> file, or a secrets manager for safe handling.
