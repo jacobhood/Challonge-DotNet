@@ -12,7 +12,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/jacobhood/Challonge-DotNet</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <PackageProjectUrl>https://github.com/jacobhood/Challonge-DotNet</PackageProjectUrl>
+    <PackageProjectUrl>https://jacobhood.github.io/Challonge-DotNet/</PackageProjectUrl>
+    <PackageReleaseNotes>Added overloads for some of the ChallongeClient methods.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

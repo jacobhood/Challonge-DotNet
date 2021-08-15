@@ -437,15 +437,12 @@ namespace ChallongeTests
                     AcceptAttachments = true
                 });
 
-            await _client.CreateParticipantAsync(t, new ParticipantInfo()
-            {
-                Name = "player1"
-            });
-
-            await _client.CreateParticipantAsync(t, new ParticipantInfo()
-            {
-                Name = "player2"
-            });
+            await _client.CreateParticipantsAsync(t, 
+                new ParticipantInfo[]
+                {
+                    new() { Name = "player1" },
+                    new() { Name = "player2" }
+                });
 
             t = await _client.StartTournamentAsync(t);
 

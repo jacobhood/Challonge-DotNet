@@ -2749,30 +2749,6 @@ references:
   isSpec: "True"
   fullName: Challonge.Objects.Score.PlayerTwoScore
   nameWithType: Score.PlayerTwoScore
-- uid: Challonge.Objects.TieBreak
-  name: TieBreak
-  href: api/Challonge.Objects.TieBreak.html
-  commentId: T:Challonge.Objects.TieBreak
-  fullName: Challonge.Objects.TieBreak
-  nameWithType: TieBreak
-- uid: Challonge.Objects.TieBreak.GameWins
-  name: GameWins
-  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_GameWins
-  commentId: F:Challonge.Objects.TieBreak.GameWins
-  fullName: Challonge.Objects.TieBreak.GameWins
-  nameWithType: TieBreak.GameWins
-- uid: Challonge.Objects.TieBreak.MatchWinsVsTied
-  name: MatchWinsVsTied
-  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_MatchWinsVsTied
-  commentId: F:Challonge.Objects.TieBreak.MatchWinsVsTied
-  fullName: Challonge.Objects.TieBreak.MatchWinsVsTied
-  nameWithType: TieBreak.MatchWinsVsTied
-- uid: Challonge.Objects.TieBreak.PointsScored
-  name: PointsScored
-  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_PointsScored
-  commentId: F:Challonge.Objects.TieBreak.PointsScored
-  fullName: Challonge.Objects.TieBreak.PointsScored
-  nameWithType: TieBreak.PointsScored
 - uid: Challonge.Objects.Tournament
   name: Tournament
   href: api/Challonge.Objects.Tournament.html

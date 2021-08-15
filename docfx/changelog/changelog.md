@@ -3,7 +3,7 @@
 ***
 ## [1.1.0] 8-15-2021
 
-- [#8](https://github.com/jacobhood/Challonge-DotNet/pull/8) Added method overloads to support tournament url or id as param
+- [#8](https://github.com/jacobhood/Challonge-DotNet/pull/8), [#11](https://github.com/jacobhood/Challonge-DotNet/issues/11) Added method overloads to support tournament url or id as param
 
 ## [1.0.0] 8-10-2021
 

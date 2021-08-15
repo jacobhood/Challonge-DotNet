@@ -82,7 +82,7 @@ namespace Challonge.Objects
         Complete
     }
 
-    public enum TieBreak
+    /*public enum TieBreak
     {
         [EnumMember(Value = "match wins vs tied")]
         MatchWinsVsTied,
@@ -91,4 +91,5 @@ namespace Challonge.Objects
         [EnumMember(Value = "points scored")]
         PointsScored
     }
+    */
 }

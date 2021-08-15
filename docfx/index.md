@@ -19,11 +19,11 @@ methods for interacting with the API.
 Recommended methods:
 - Package manager UI
 - Package manager Console:\
-```PM> Install-Package Challonge-DotNet -Version 1.0.0```
+```PM> Install-Package Challonge-DotNet -Version 1.1.0```
 - .NET CLI\
-```> dotnet add package Challonge-DotNet --version 1.0.0```
+```> dotnet add package Challonge-DotNet --version 1.1.0```
 
-## Usage
+## Basic Usage
 ***
 See the [guides section](xref:guides_gettingStarted) to see some examples on how to use the package.
 

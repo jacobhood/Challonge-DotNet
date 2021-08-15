@@ -171,8 +171,8 @@ namespace Challonge.Objects
         [JsonProperty("started_checking_in_at")]
         public DateTime? StartedCheckingInAt { get; private set; }
 
-        [JsonProperty("tie_breaks", ItemConverterType = typeof(StringEnumConverter))]
-        public IEnumerable<TieBreak> TieBreaks { get; private set; }
+        [JsonProperty("tie_breaks")]
+        public IEnumerable<string> TieBreaks { get; private set; }
 
         [JsonProperty("locked_at")]
         public DateTime? LockedAt { get; private set; }
