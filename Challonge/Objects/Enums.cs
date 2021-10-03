@@ -37,6 +37,8 @@ namespace Challonge.Objects
         Swiss,
         [EnumMember(Value = "free for all")]
         FreeForAll,
+        [EnumMember(Value = "leaderboard")]
+        Leaderboard,
         [EnumMember(Value = "time trial")]
         TimeTrial,
         [EnumMember(Value = "single race")]
