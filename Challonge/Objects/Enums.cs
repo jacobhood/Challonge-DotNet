@@ -84,14 +84,21 @@ namespace Challonge.Objects
         Complete
     }
 
-    /*public enum TieBreak
+    public enum TieBreak
     {
-        [EnumMember(Value = "match wins vs tied")]
-        MatchWinsVsTied,
+        [EnumMember(Value = "match wins")]
+        MatchWins,
         [EnumMember(Value = "game wins")]
         GameWins,
+        [EnumMember(Value = "game win percentage")]
+        GameWinPercentage,
         [EnumMember(Value = "points scored")]
-        PointsScored
+        PointsScored,
+        [EnumMember(Value = "points difference")]
+        PointsDifference,
+        [EnumMember(Value = "match wins vs tied")]
+        MatchWinsVsTied,
+        [EnumMember(Value = "median bucholz")]
+        MedianBucholz
     }
-    */
 }

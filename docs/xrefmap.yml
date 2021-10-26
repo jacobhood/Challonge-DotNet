@@ -2749,6 +2749,54 @@ references:
   isSpec: "True"
   fullName: Challonge.Objects.Score.PlayerTwoScore
   nameWithType: Score.PlayerTwoScore
+- uid: Challonge.Objects.TieBreak
+  name: TieBreak
+  href: api/Challonge.Objects.TieBreak.html
+  commentId: T:Challonge.Objects.TieBreak
+  fullName: Challonge.Objects.TieBreak
+  nameWithType: TieBreak
+- uid: Challonge.Objects.TieBreak.GameWinPercentage
+  name: GameWinPercentage
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_GameWinPercentage
+  commentId: F:Challonge.Objects.TieBreak.GameWinPercentage
+  fullName: Challonge.Objects.TieBreak.GameWinPercentage
+  nameWithType: TieBreak.GameWinPercentage
+- uid: Challonge.Objects.TieBreak.GameWins
+  name: GameWins
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_GameWins
+  commentId: F:Challonge.Objects.TieBreak.GameWins
+  fullName: Challonge.Objects.TieBreak.GameWins
+  nameWithType: TieBreak.GameWins
+- uid: Challonge.Objects.TieBreak.MatchWins
+  name: MatchWins
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_MatchWins
+  commentId: F:Challonge.Objects.TieBreak.MatchWins
+  fullName: Challonge.Objects.TieBreak.MatchWins
+  nameWithType: TieBreak.MatchWins
+- uid: Challonge.Objects.TieBreak.MatchWinsVsTied
+  name: MatchWinsVsTied
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_MatchWinsVsTied
+  commentId: F:Challonge.Objects.TieBreak.MatchWinsVsTied
+  fullName: Challonge.Objects.TieBreak.MatchWinsVsTied
+  nameWithType: TieBreak.MatchWinsVsTied
+- uid: Challonge.Objects.TieBreak.MedianBucholz
+  name: MedianBucholz
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_MedianBucholz
+  commentId: F:Challonge.Objects.TieBreak.MedianBucholz
+  fullName: Challonge.Objects.TieBreak.MedianBucholz
+  nameWithType: TieBreak.MedianBucholz
+- uid: Challonge.Objects.TieBreak.PointsDifference
+  name: PointsDifference
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_PointsDifference
+  commentId: F:Challonge.Objects.TieBreak.PointsDifference
+  fullName: Challonge.Objects.TieBreak.PointsDifference
+  nameWithType: TieBreak.PointsDifference
+- uid: Challonge.Objects.TieBreak.PointsScored
+  name: PointsScored
+  href: api/Challonge.Objects.TieBreak.html#Challonge_Objects_TieBreak_PointsScored
+  commentId: F:Challonge.Objects.TieBreak.PointsScored
+  fullName: Challonge.Objects.TieBreak.PointsScored
+  nameWithType: TieBreak.PointsScored
 - uid: Challonge.Objects.Tournament
   name: Tournament
   href: api/Challonge.Objects.Tournament.html
@@ -4365,6 +4413,12 @@ references:
   commentId: F:Challonge.Objects.TournamentType.GrandPrix
   fullName: Challonge.Objects.TournamentType.GrandPrix
   nameWithType: TournamentType.GrandPrix
+- uid: Challonge.Objects.TournamentType.Leaderboard
+  name: Leaderboard
+  href: api/Challonge.Objects.TournamentType.html#Challonge_Objects_TournamentType_Leaderboard
+  commentId: F:Challonge.Objects.TournamentType.Leaderboard
+  fullName: Challonge.Objects.TournamentType.Leaderboard
+  nameWithType: TournamentType.Leaderboard
 - uid: Challonge.Objects.TournamentType.RoundRobin
   name: RoundRobin
   href: api/Challonge.Objects.TournamentType.html#Challonge_Objects_TournamentType_RoundRobin

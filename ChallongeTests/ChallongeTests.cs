@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Challonge.Exceptions;
 using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace ChallongeTests
 {
@@ -177,7 +176,7 @@ namespace ChallongeTests
             {
                 Name = "ParticipantsTest" + _testTournamentSuffix,
                 CheckInDuration = 30,
-                StartAt = DateTime.Now
+                StartAt = DateTime.Now.AddMinutes(1)
             };
 
             Tournament t = await _client.CreateTournamentAsync(ti);
@@ -292,7 +291,7 @@ namespace ChallongeTests
                 {
                     Name = "TournamentCheckInsTest" + _testTournamentSuffix,
                     CheckInDuration = 60,
-                    StartAt = DateTime.Now
+                    StartAt = DateTime.Now.AddMinutes(1)
                 });
 
             Assert.IsNotNull(t.StartedCheckingInAt);

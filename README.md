@@ -174,7 +174,7 @@ It will also be updated as needed for testing any changes to the library.
 
 ## Notes
 
-These observations come from experimenting and debugging, so they may not be totally accurate.
+These observations arose from experimenting and debugging, so they may not be totally accurate.
 
 - Match attachment files must be images.
 - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status, but this is not the case for the `Participant` 

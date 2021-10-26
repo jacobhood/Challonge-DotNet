@@ -29,8 +29,10 @@ See the [guides section](xref:guides_gettingStarted) to see some examples on how
 
 *** 
 > [!NOTE]
-> The following observations come from experimenting and debugging, so they may not be totally accurate.
+> The following observations arose from experimenting and debugging, so they may not be totally accurate.
 > - Match attachment files must be images.
 > - The `Participant` returned from `UndoCheckInParticipantAsync` has the correct checked-in status,
 > but this is not the case for the `Participant` returned from `GetParticipantAsync` after undoing their check-in. 
 > This behavior has been documented elsewhere, so there's a chance it's a Challonge-side issue.
+> - The `HasAttachment` property of `Match` does not appear to be set to true when a `MatchAttachment` is created; however, the `AttachmentCount` property
+> is incremented.

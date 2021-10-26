@@ -2547,8 +2547,8 @@ public bool? Teams { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;tie_breaks&quot;)]
-public IEnumerable&lt;string&gt; TieBreaks { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;tie_breaks&quot;, ItemConverterType = typeof(StringEnumConverter))]
+public IEnumerable&lt;TieBreak&gt; TieBreaks { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2560,7 +2560,7 @@ public IEnumerable&lt;string&gt; TieBreaks { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Challonge.Objects.TieBreak.html">TieBreak</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

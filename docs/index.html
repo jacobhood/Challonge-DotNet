@@ -89,12 +89,14 @@ methods for interacting with the API.</p>
 <hr>
 <div class="NOTE">
 <h5>Note</h5>
-<p>The following observations come from experimenting and debugging, so they may not be totally accurate.</p>
+<p>The following observations arose from experimenting and debugging, so they may not be totally accurate.</p>
 <ul>
 <li>Match attachment files must be images.</li>
 <li>The <code>Participant</code> returned from <code>UndoCheckInParticipantAsync</code> has the correct checked-in status,
 but this is not the case for the <code>Participant</code> returned from <code>GetParticipantAsync</code> after undoing their check-in.
 This behavior has been documented elsewhere, so there's a chance it's a Challonge-side issue.</li>
+<li>The <code>HasAttachment</code> property of <code>Match</code> does not appear to be set to true when a <code>MatchAttachment</code> is created; however, the <code>AttachmentCount</code> property
+is incremented.</li>
 </ul>
 </div>
 </article>

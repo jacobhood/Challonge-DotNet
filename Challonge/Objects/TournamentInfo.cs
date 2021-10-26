@@ -56,7 +56,7 @@ namespace Challonge.Objects
 
         [JsonProperty("rr_pts_for_match_tie")]
         public double RRPtsForMatchTie { get; set; }
-         
+
         [JsonProperty("rr_pts_for_game_win")]
         public double RRPtsForGameWin { get; set; }
 
