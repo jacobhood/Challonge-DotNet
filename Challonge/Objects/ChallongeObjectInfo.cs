@@ -9,8 +9,10 @@ namespace Challonge.Objects
         internal abstract Dictionary<string, object> ToDictionary(bool ignoreNulls);
         private protected Dictionary<string, object> ToDictionaryWithKeyPrefix(string prefix, bool ignoreNulls)
         {
-            JsonSerializerSettings settings = new();
-            settings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
+            JsonSerializerSettings settings = new()
+            {
+                DateTimeZoneHandling = DateTimeZoneHandling.Local
+            };
 
             if (ignoreNulls)
             {

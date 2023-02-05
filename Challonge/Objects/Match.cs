@@ -82,7 +82,7 @@ namespace Challonge.Objects
         public DateTime? UnderwayAt { get; private set; }
 
         [JsonProperty("optional")]
-        public bool Optional { get; private set; }
+        public bool? Optional { get; private set; }
 
         [JsonProperty("rushb_id")]
         public long? RushbId { get; private set; }

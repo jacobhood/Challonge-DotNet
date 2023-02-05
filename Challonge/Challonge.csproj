@@ -8,12 +8,12 @@
     <Product>Challonge</Product>
     <Description>A library for interacting with the Challonge API built on .NET 5.0.</Description>
     <PackageTags>Challonge, API</PackageTags>
-    <Version>1.1.0</Version>
+    <Version>3.0.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/jacobhood/Challonge-DotNet</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageProjectUrl>https://jacobhood.github.io/Challonge-DotNet/</PackageProjectUrl>
-    <PackageReleaseNotes>Added overloads for some of the ChallongeClient methods.</PackageReleaseNotes>
+    <PackageReleaseNotes>Made Match.Optional nullable.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
