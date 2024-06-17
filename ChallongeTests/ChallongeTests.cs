@@ -261,7 +261,7 @@ namespace ChallongeTests
                 {
                     Name = "ParticipantCheckInsTest" + _testTournamentSuffix,
                     CheckInDuration = 60,
-                    StartAt = DateTime.Now
+                    StartAt = DateTime.Now.AddMinutes(1)
                 });
 
             Participant p = await _client.CreateParticipantAsync(
