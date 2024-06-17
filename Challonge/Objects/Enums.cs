@@ -98,7 +98,7 @@ namespace Challonge.Objects
         PointsDifference,
         [EnumMember(Value = "match wins vs tied")]
         MatchWinsVsTied,
-        [EnumMember(Value = "median bucholz")]
-        MedianBucholz
+        [EnumMember(Value = "median buchholz")]
+        MedianBuchholz
     }
 }
