@@ -184,7 +184,7 @@ namespace Challonge.Objects
         public bool? PublicPredictionsBeforeStartTime { get; private set; }
 
         [JsonProperty("ranked")]
-        public bool Ranked { get; private set; }
+        public bool? Ranked { get; private set; }
 
         [JsonProperty("grand_finals_modifier")]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -221,13 +221,13 @@ namespace Challonge.Objects
         public bool? OnlyStartMatchesWithStations { get; private set; }
 
         [JsonProperty("registration_fee")]
-        public double RegistrationFee { get; private set; }
+        public double? RegistrationFee { get; private set; }
 
         [JsonProperty("registration_type")]
         public string RegistrationType { get; private set; }
 
         [JsonProperty("split_participants")]
-        public bool SplitParticipants { get; private set; }
+        public bool? SplitParticipants { get; private set; }
 
         [JsonProperty("allowed_regions")]
         public IEnumerable<string> AllowedRegions { get; private set; }
