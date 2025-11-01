@@ -12,6 +12,8 @@ namespace Challonge.Objects
         InProgress,
         [EnumMember(Value = "underway")]
         Underway,
+        [EnumMember(Value = "group_stages_underway")]
+        GroupStagesUnderway,
         [EnumMember(Value = "ended")]
         Ended,
         [EnumMember(Value = "checking_in")]
@@ -22,6 +24,8 @@ namespace Challonge.Objects
         AcceptingPredictions,
         [EnumMember(Value = "awaiting_review")]
         AwaitingReview,
+        [EnumMember(Value = "group_stages_finalized")]
+        GroupStagesFinalized,
         [EnumMember(Value = "complete")]
         Complete
     }
